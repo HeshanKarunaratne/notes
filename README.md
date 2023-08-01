@@ -10,8 +10,17 @@
 
 
 - SOLID Principals
-
-
+    - Single Responsibility Principal
+        - A Class should have one and only one responsibility
+    - Open/Closed Principal
+        - Open for extension and closed for modification
+    - Liscov Substitute Principal
+        - Subtypes must be substitutable for their base types
+    - Interface Segregation Principal
+        - The dependency of one class to another one should depend on the smallest possible interface
+    - Dependency Inversion Principal
+        - Depend upon abstractions, not upon concrete classes
+    
 - ACID
     - A:Atomicity
         - The entire transaction takes place at once or doesn't happen at all
