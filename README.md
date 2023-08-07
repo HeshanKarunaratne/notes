@@ -35,6 +35,21 @@
     - Dont provide setter methods for variables
     - Initialize all the fields via a constructor
 
+    10 . Boxing and unBoxing
+    - Boxing is the process of converting a primitive datatype into an object wrapper datatype
+    - Unboxing is the process of converting a value from an object wrapper type back to the native primitive value
+
+    11 . What is JDK, JRE and JVM
+    - JDK > JRE > JVM
+    - JDK: Contains JRE and other development tools
+    - JRE: Runtime Environment for the bytecode to execute
+    - JVM: Convert bytecode to machine code using a platform independent virtual machine
+    - Java Program ---Java compiler--> Java ByteCode ---JVM---> Machine Code
+    
+    12 . Why main() method is public static?
+    - So that the JVM can directly invoke it without instantiating class object
+    
+    
 - Spring
 
 
