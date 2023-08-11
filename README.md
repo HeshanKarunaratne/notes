@@ -49,6 +49,17 @@
     12 . Why main() method is public static?
     - So that the JVM can directly invoke it without instantiating class object
     
+    13 . What are mutable and immutable String objects?
+    - String is immutable while StringBuilder and StringBuffer are mutable
+    
+    14 . Difference between == and equals() method in Java?
+    - equals() used for content comparison while == checks same objects points to the same memory location
+    
+    15 . Difference between StringBuilder and StringBuffer?
+    - StringBuilder is not thread safe while StringBuffer is thread safe
+    - StringBuffer is slower compared to StringBuilder 
+    
+    16 . 
     
 - Spring
 
