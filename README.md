@@ -59,7 +59,55 @@
     - StringBuilder is not thread safe while StringBuffer is thread safe
     - StringBuffer is slower compared to StringBuilder 
     
-    16 . 
+    16 . Difference between List and Set
+    - List allow duplicates, Set doesn't allow duplicates
+    - List maintains insertion order, Set doesn't maintain insertion order
+    - List allows any number of null values, Set can have only a single null value at most
+    
+    17 . Difference between ArrayList and LinkedList
+    - ArrayList internally uses a dynamic array to store elements, LinkedList internally uses a doubly linked list to store elements
+    - Manipulation of ArrayList is slow, while LinkedList is faster
+    - ArrayList consumes less memory, while LinkedList consumes more memory since it stores references to previous and next elements
+    - ArrayList implements List interface only, LinkedList implements List and Deque interfaces
+    
+    18 . Difference between Collections and Streams
+    - Collections are used to store and group the data while streams are used to perform filtering,matching,mapping operations
+    - Can add or remove elements from Collections but cannot do that in Streams
+    - Collections need to be iterated externally(for loops) but Streams are iterated internally(for-each())
+    
+    19 . What are the new features in Java 8?
+    - Lambda Expressions
+    - Method References
+        1. What ware different kind of method references?
+            - Reference to a static method
+            - Reference to an instance method of a particular object
+            - Reference to an instance method of an arbitrary object of a particular type
+            - Reference to a constructor
+           
+    - Optional
+        1. What are the advantages of Optionals?
+            - Null checks are not required
+            - No more NullPointerException at run time
+            - Clean neat APIs
+            
+    - Functional Interfaces
+    - Default Methods
+        1. What is a default method and when do we use it?
+            - Default method is a method with an implementation which can be found in an interface
+            
+    - Stream API
+    - Date and Time API
+    
+    20 . What are the rules to define a Functional Interface?
+    - Define an interface with one and only one abstract method
+    - We cannot define more than one abstract method
+    - Use @FunctionalInterface annotation in the interface definition - this is optional
+    - We can define any number of other methods like default methods, static methods
+    
+    21 . What is the order of JVM matching method arguments?
+    - 
+    
+    22 . 
     
 - Spring
 
