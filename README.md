@@ -107,7 +107,36 @@
     21 . What is the order of JVM matching method arguments?
     - 
     
-    22 . 
+    22 . Why do we need OOP?
+    - It helps us to think in terms of Real world objects
+    - Pillars of OOP?
+        1. Abstraction: Show only what is necessary, hiding the complexity
+        
+        2. Polymorphism: Objects act differently under different conditions
+        
+        3. Inheritance: Parent Child relationship
+        
+        4. Encapsulation: Hiding the data
+    
+    23 . What is a class and an object?
+    - A class is a blueprint of an object
+    - An object is an instance of a class
+    
+    24 . Is-A relationship and Has-A relationship?
+    - 
+    
+    25 . What is method overriding and overloading?
+    - Overloading is same method name with different signatures
+    - Overriding is same method name with same signature, need to have parent child relationship and any method in parent class can be overridden in child class
+    
+    26 . Static(Compile) vs Dynamic(Runtime) Polymorphism?
+    - Static Polymorphism is implemented by Method Overloading
+    - Dynamic Polymorphism is implemented by Method Overriding
+    
+    27 . Abstract Class
+    - Abstract class is a Partially defined Parent class
+    - We cannot create constructors for Abstract classes
+    
     
 - Spring
 
