@@ -133,10 +133,15 @@
     - Static Polymorphism is implemented by Method Overloading
     - Dynamic Polymorphism is implemented by Method Overriding
     
-    27 . Abstract Class
+    27 . What is an Abstract Class
     - Abstract class is a Partially defined Parent class
     - We cannot create constructors for Abstract classes
     
+    28 . What is an Interface?
+    - Interface is a contract
+    - We cant write logic in interface
+    - All the methods are public in an interface
+    - Multiple Inheritance helps to add new methods without affecting the old interfaces
     
 - Spring
 
