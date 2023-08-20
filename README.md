@@ -111,11 +111,20 @@
     - It helps us to think in terms of Real world objects
     - Pillars of OOP?
         1. Abstraction: Show only what is necessary, hiding the complexity
-        
+            - Abstract methods do not have an implementation, it only have method signatures
+            - If a class have abstract method then the class needs to be declared abstract
+            - An abstract class does not necessarily have an abstract method
+            - Cannot be instantiated but abstract classes can have constructors: constructor can only be called during constructor chaining
+            - Can have static methods and final methods
+            - Abstract class implements interfaces but it does not need to implement all methods
+            - Abstract classes cannot be final because making an abstract class final will stop the abstract class from being extended
+
         2. Polymorphism: Objects act differently under different conditions
         
         3. Inheritance: Parent Child relationship
-        
+            - All the methods are declared with the empty body and are public and abstract by default
+            - All the fields public, static and final by default
+            
         4. Encapsulation: Hiding the data
     
     23 . What is a class and an object?
