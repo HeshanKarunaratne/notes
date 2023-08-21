@@ -16,7 +16,9 @@
     - String literals are kept inside String pool and it requires Strings to be immutable. If there is a String in the pool it will get referenced otherwise a new String object will be created and will get a reference
     
     5 . What is a marker interface?
-    - A marker interface is an empty interface. eg: Serializable, Cloneable
+    - A marker interface is an empty interface. eg: Serializable, Cloneable(To get an exact duplicate object)
+    - By implementing a marker interface classes will get additional behaviour at compile time
+    - You can create your own marker interface, but need to do some customizations to the JVM
     
     6 . Can you override a private or static method in Java?
     - Cannot override a private or static methods in java
@@ -120,10 +122,15 @@
             - Abstract classes cannot be final because making an abstract class final will stop the abstract class from being extended
 
         2. Polymorphism: Objects act differently under different conditions
+            - There are 2 types of polymorphism
+                1. Static polymorphism(Overloading)
+                2. Dynamic polymorphism(Overriding)
         
         3. Inheritance: Parent Child relationship
             - All the methods are declared with the empty body and are public and abstract by default
             - All the fields public, static and final by default
+            - Interface is used for full abstraction
+            - A class implements interface and implements all abstract methods
             
         4. Encapsulation: Hiding the data
     
