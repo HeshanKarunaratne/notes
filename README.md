@@ -139,7 +139,8 @@
     - An object is an instance of a class
     
     24 . Is-A relationship and Has-A relationship?
-    - 
+    - Whenever one class inherits another class it is called an Is-A relationship(extend)
+    - Whenever an instance of one class has a reference to an instance of another class or same class it is known as Has-A relationship
     
     25 . What is method overriding and overloading?
     - Overloading is same method name with different signatures
