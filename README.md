@@ -160,6 +160,59 @@
     - All the methods are public in an interface
     - Multiple Inheritance helps to add new methods without affecting the old interfaces
     
+    29 . what are static blocks and static initalizers in Java?
+    - Static blocks or static initializers are used to initalize static fields in java.
+    - Static blocks gets executed exactly once when the class is loaded 
+    - Static blocks are executed even before the constructors are executed.
+    
+    30 . How to call one constructor from the other constructor ?
+    - If we want to call one constructor from other we use this() method. Based on the number of parameters we pass appropriate this() method is called
+    - 'this()' must be the first statement in the constructor
+    - We cannot use two this() methods in the constructor
+    
+    31 . Difference between method overloading and method overriding in java ?
+    - Overloading
+        1. Method Overloading occurs with in the same class
+        2. Since it involves with only one class inheritance is not involved
+        3. In overloading return type need not be the same
+        4. Parameters must be different when we do overloading
+        5. In overloading one method can’t hide the another
+    - Overriding
+        1. Method Overriding occurs between two classes superclass and subclass
+        2. Since method overriding occurs between superclass and subclass inheritance is involved
+        3. In overriding return type must be same
+        4. Parameters must be same
+        5. In overriding subclass method hides that of the superclass method
+     
+    32 . Why java is platform independent?
+    - In any programming language source code is compiled in to executable code. When javac compiles a java program it generates an executable file called .class file.
+    - .class file contains byte codes. Byte codes are interpreted only by JVM
+    - We can execute this byte code in any platform and this makes Java platform independent
+    
+    33 . Difference between this() and super() in java ?
+    - this() is used to access one constructor from another with in the same class while super() is used to access superclass constructor. Either this() or super() exists it must be the first statement in the constructor.
+    
+    34 . Explain about instanceof operator in java?
+    - \<reference expression> instanceof \<destination type>: will return true if reference is an instance of destination type
+    - There will be a compile time check, so that if its not a subtype then compile time error will be shown
+    
+    35 . Can we define package statement after import statement in java?
+    - We can’t define package statement after import statement in java. package statement must be the first statement in source file. We can have comments before the package statement
+    
+    36 . What are identifiers in java?
+    - Identifiers are names in java
+    - Identifiers must start with letter,Underscore or dollar($) sign
+    - Identifiers can’t start with numbers
+    - Case sensitive
+    - From second letter we can have numbers
+    - We cant use reserved words for identifiers
+    
+    37 . 
+    
+    
+    
+    
+    
 - Spring
 
 
