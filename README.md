@@ -207,10 +207,44 @@
     - From second letter we can have numbers
     - We cant use reserved words for identifiers
     
-    37 . 
+    37 . What access modifiers can be used for class ?
+    - public and default: Can access in same class, same package subclass, same package non subclass, different package subclass, different package non subclass
     
+    38 . Explain what access modifiers can be used for methods?
+    - All access modifiers
+        - private: Only in same class
+        - protected: Can access in same class, same package subclass, same package non subclass, different package subclass only
+        - default: Can access in same class, same package subclass, same package non subclass only
+        - public: Can access in same class, same package subclass, same package non subclass, different package subclass, different package non subclass
     
+    39 . What is an error in Java?
+    - Error is the subclass of Throwable class in java
+    - Exceptions which cannot be recovered are called as errors in java
     
+    40 . Can we have try block without catch block?
+    - Each try block requires atleast one catch block or finally block
+    
+    41 . What is checked and unchecked Exception in Java?
+    - Checked Exception(Compile time exception)
+        1. All the subclasses of Throwable except RuntimeException and its subclasses are checked Exception
+        2. Checked Exception should be thrown with keyword throws or provided try catch block else program would not compile
+        3. Examples
+            - IOException
+            - SQIException
+            - FileNotFoundException
+            - ClassNotFoundException
+            - InvocationTargetException
+    - Unchecked Exception
+        1. All subclasses of RuntimeException are called unchecked Exception
+        2. Program compiles even if we do not catch the exception or throws the exception
+        3. Examples
+            - ArithmeticException
+            - IndexOutOfBoundsException
+            - NullPointerException
+            - NumberFormatException
+            - UnsupportedOperationException
+    
+    42 . 
     
     
 - Spring
