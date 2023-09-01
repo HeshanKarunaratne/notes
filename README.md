@@ -244,7 +244,17 @@
             - NumberFormatException
             - UnsupportedOperationException
     
-    42 . 
+    42 . Explain the importance of finally over return statement?
+    - 'finally' block is more important than return statement when both are present in a program. For example if there is any return statement present inside try or catch block , and finally block is also present first finally statement will be executed and then return statement will be considered
+    - 'finally' will not work in JVM shutdowns
+    
+    43 . Explain when ClassNotFoundException will be raised ?
+    - When JVM tries to load a class by its string name, and couldn’t able to find the class classNotFoundException will be thrown
+       
+    44 . Explain when NoClassDefFoundError will be raised ?
+    - JVM tries to load the class but no definition for that class is found. The class may exist at compile time but unable to find at runtime
+    
+    45 . 83
     
     
 - Spring
