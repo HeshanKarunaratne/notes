@@ -254,7 +254,12 @@
     44 . Explain when NoClassDefFoundError will be raised ?
     - JVM tries to load the class but no definition for that class is found. The class may exist at compile time but unable to find at runtime
     
-    45 . 83
+    45 . Explain about main thread in java?
+    - Main thread is the first thread that starts immediately after a program is started
+    - Main thread is important because,
+        1. All the child threads are spawn from main thread
+        2. It is responsible for executing the main method of the class specified when launching the program
+           
     
     
 - Spring
