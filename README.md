@@ -260,7 +260,21 @@
         1. All the child threads are spawn from main thread
         2. It is responsible for executing the main method of the class specified when launching the program
            
+    46 . Explain the life cycle of thread?
+    - New: When the instance of thread is created it will be in New state
+    - Runnable: When the start method is invoked or after coming back from blocked/sleeping/waiting state
+    - Running: If thread scheduler allocates cpu time, then the thread will be in running state
+    - Waiting/Blocked/Sleeping: The thread waits to acquire lock of an object, waits for another thread to complete
+    - Dead: A thread is in dead state when thread’s run method execution is complete
     
+    47 . In how many ways we can do synchronization in java?
+    - Synchronized methods
+    - Synchronized blocks
+    
+    48 . When do we use synchronized methods in java?
+    - If multiple threads tries to access a method where method can manipulate the state of object , in such scenario we can declare a method as synchronized
+    
+    49 . 113
     
 - Spring
 
