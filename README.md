@@ -274,7 +274,11 @@
     48 . When do we use synchronized methods in java?
     - If multiple threads tries to access a method where method can manipulate the state of object , in such scenario we can declare a method as synchronized
     
-    49 . 113
+    49 . Can we use synchronized block for primitives?
+    - Synchronized blocks are applicable only for objects if we try to use synchronized blocks for primitives we get compile time error
+    
+    50 . 127
+    
     
 - Spring
 
