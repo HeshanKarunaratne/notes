@@ -277,7 +277,15 @@
     49 . Can we use synchronized block for primitives?
     - Synchronized blocks are applicable only for objects if we try to use synchronized blocks for primitives we get compile time error
     
-    50 . 127
+    50 . What are daemon threads in java?
+    - Daemon threads are threads which run in background. These are service threads and works for the benefit of other threads. Garbage collector is one of the good example for daemon threads
+    
+    51 . What are nested classes in java?
+    - Class declared with in another class is defined as nested class
+        1. Static nested class
+        1. Non static nested class
+    
+    52 . 140
     
     
 - Spring
