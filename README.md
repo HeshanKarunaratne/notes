@@ -285,7 +285,20 @@
         1. Static nested class
         1. Non static nested class
     
-    52 . 140
+    52 . What are inner classes or non static nested classes in java?
+    - Nested classes without any static keyword declaration in class definition are defined as non static nested classes. Generally non static nested classes are referred as inner classes
+    - There are 4 types of Inner classes
+        1. Local Inner Class
+        2. Member Inner Class
+        3. Static Nested Inner Class
+        4. Anonymous Inner Class
+    
+    53 . Will the compiler creates a default constructor if I have a parameterized constructor in the class?
+    - No compiler won’t create default constructor if there is parameterized constructor in the class. 
+    - For example if I have a class with no constructors, then compiler will create default constructor
+    
+   54 .  Can Static methods access instance variables in java?
+   - No. Instance variables can’t be accessed in static methods. When we try to access instance variable in static method we get compilation error
     
     
 - Spring
