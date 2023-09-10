@@ -297,8 +297,25 @@
     - No compiler won’t create default constructor if there is parameterized constructor in the class. 
     - For example if I have a class with no constructors, then compiler will create default constructor
     
-   54 .  Can Static methods access instance variables in java?
+   54 . Can Static methods access instance variables in java?
    - No. Instance variables can’t be accessed in static methods. When we try to access instance variable in static method we get compilation error
+   
+   55 . How many times finalize method will be invoked ? who invokes finalize() method in java?
+   - Finalize () method will be called only once on object. Before the object gets garbage collected garbage collector will call finalize() method to free the resources. 
+   - Finalize() method will be called only when object is eligible for garbage collection
+   
+   56 . Explain about transient variables in java?
+   - To save the state of an object to persistent state we use serialization. If we want a field or variable in the object not to be saved, then we declare that variable or field as transient
+   
+   57 . Can we define static methods inside interface?
+   -  Only instance methods are permitted in interfaces.only public and abstract modifiers are permitted for interface methods
+    
+   58 . Define interface in java?
+   -  Interface is collection of abstract methods and constants. An interface is also defined as pure or 100 percent abstract class.Interfaces are implicitly abstract whether we define abstract access modifier or not.
+   
+   59 . Explain restrictions on using enum?
+   - Enums cannot extend any other class or enum
+   - We cannot instantiate an enum
     
     
 - Spring
