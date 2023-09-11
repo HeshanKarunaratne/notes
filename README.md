@@ -316,7 +316,15 @@
    59 . Explain restrictions on using enum?
    - Enums cannot extend any other class or enum
    - We cannot instantiate an enum
-    
+   
+   60 . What is collection ?
+   - A collection is a container which holds group of objects
+        1. Adding objects to collection
+        2. Removing or deleting objects from collection
+        3. Retrieving object from collection
+        4. Iterating collection
+   
+   61 . 201
     
 - Spring
 
