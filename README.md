@@ -324,7 +324,13 @@
         3. Retrieving object from collection
         4. Iterating collection
    
-   61 . 201
+   61 . What is Vector?
+   - Vector is similar to arraylist used for random access
+   - Vector is a dynamic array like arraylist
+   - Vector size increases or decreases when elements are added and removed
+   - Vector is synchronized
+   
+   62 . 
     
 - Spring
 
