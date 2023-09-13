@@ -330,7 +330,7 @@
    - Vector size increases or decreases when elements are added and removed
    - Vector is synchronized
    
-   62 . 
+   62 . 221
     
 - Spring
 
