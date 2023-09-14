@@ -330,7 +330,13 @@
    - Vector size increases or decreases when elements are added and removed
    - Vector is synchronized
    
-   62 . 221
+   62 . Difference between HashMap and Hashtable?
+   - HashMap is not synchronized but Hashtable is synchronized
+   - HashMap allows one null key and any number of null values but Hashtable does not allow any null values at all
+   - Hashtable is slower compared to HashMap
+   - HashMap introduced strating from collection framework but Hashtable was there even before collection framework
+   
+   63 . 225
     
 - Spring
 
