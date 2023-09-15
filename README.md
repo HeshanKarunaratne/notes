@@ -336,7 +336,14 @@
    - Hashtable is slower compared to HashMap
    - HashMap introduced strating from collection framework but Hashtable was there even before collection framework
    
-   63 . 225
+   63 . Explain about fail fast iterators in java
+   - When iterator iterates over collection, collection should not be modified except by that iterator
+   
+   64 . 230
+   
+   
+   
+   
     
 - Spring
 
