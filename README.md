@@ -339,7 +339,11 @@
    63 . Explain about fail fast iterators in java
    - When iterator iterates over collection, collection should not be modified except by that iterator
    
-   64 . 230
+   64 . What is serialization in java?
+   - Serialization is the process of converting an object in to bytes, so that it can be transmitted over the network,or stored in a flat file and can be recreated later. 
+   - Serialized object is an object represented as sequence of bytes that includes objects data, object type, and the types of data stored in the object.
+   
+   65 . 235
    
    
    
