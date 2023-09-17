@@ -343,7 +343,15 @@
    - Serialization is the process of converting an object in to bytes, so that it can be transmitted over the network,or stored in a flat file and can be recreated later. 
    - Serialized object is an object represented as sequence of bytes that includes objects data, object type, and the types of data stored in the object.
    
-   65 . 235
+   65 . How to make object serializable in java?
+   - Our class must implement serializable interface. If our object contains other objects those class must also implement serializable interface.
+   - We use ObjectOutputStream which extends OutputStream used to write objects to a stream.
+   - We use ObjectInputStream which extends InputStream used to read objects from stream.
+   
+   66 . If we don’t want some of the fields not to serialize How to do that?
+   - If we don’t want to serialize some fields during serialization we declare those variables as transient
+   
+   
    
    
    
