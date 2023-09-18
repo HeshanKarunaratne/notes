@@ -297,68 +297,73 @@
     - No compiler won’t create default constructor if there is parameterized constructor in the class. 
     - For example if I have a class with no constructors, then compiler will create default constructor
     
-   54 . Can Static methods access instance variables in java?
-   - No. Instance variables can’t be accessed in static methods. When we try to access instance variable in static method we get compilation error
+    54 . Can Static methods access instance variables in java?
+    - No. Instance variables can’t be accessed in static methods. When we try to access instance variable in static method we get compilation error
    
-   55 . How many times finalize method will be invoked ? who invokes finalize() method in java?
-   - Finalize () method will be called only once on object. Before the object gets garbage collected garbage collector will call finalize() method to free the resources. 
-   - Finalize() method will be called only when object is eligible for garbage collection
+    55 . How many times finalize method will be invoked ? who invokes finalize() method in java?
+    - Finalize () method will be called only once on object. Before the object gets garbage collected garbage collector will call finalize() method to free the resources. 
+    - Finalize() method will be called only when object is eligible for garbage collection
    
-   56 . Explain about transient variables in java?
-   - To save the state of an object to persistent state we use serialization. If we want a field or variable in the object not to be saved, then we declare that variable or field as transient
+    56 . Explain about transient variables in java?
+    - To save the state of an object to persistent state we use serialization. If we want a field or variable in the object not to be saved, then we declare that variable or field as transient
    
-   57 . Can we define static methods inside interface?
-   -  Only instance methods are permitted in interfaces.only public and abstract modifiers are permitted for interface methods
+    57 . Can we define static methods inside interface?
+    -  Only instance methods are permitted in interfaces.only public and abstract modifiers are permitted for interface methods
     
-   58 . Define interface in java?
-   -  Interface is collection of abstract methods and constants. An interface is also defined as pure or 100 percent abstract class.Interfaces are implicitly abstract whether we define abstract access modifier or not.
+    58 . Define interface in java?
+    -  Interface is collection of abstract methods and constants. An interface is also defined as pure or 100 percent abstract class.Interfaces are implicitly abstract whether we define abstract access modifier or not.
    
-   59 . Explain restrictions on using enum?
-   - Enums cannot extend any other class or enum
-   - We cannot instantiate an enum
+    59 . Explain restrictions on using enum?
+    - Enums cannot extend any other class or enum
+    - We cannot instantiate an enum
    
-   60 . What is collection ?
-   - A collection is a container which holds group of objects
+    60 . What is collection ?
+    - A collection is a container which holds group of objects
         1. Adding objects to collection
         2. Removing or deleting objects from collection
         3. Retrieving object from collection
         4. Iterating collection
    
-   61 . What is Vector?
-   - Vector is similar to arraylist used for random access
-   - Vector is a dynamic array like arraylist
-   - Vector size increases or decreases when elements are added and removed
-   - Vector is synchronized
+    61 . What is Vector?
+    - Vector is similar to arraylist used for random access
+    - Vector is a dynamic array like arraylist
+    - Vector size increases or decreases when elements are added and removed
+    - Vector is synchronized
    
-   62 . Difference between HashMap and Hashtable?
-   - HashMap is not synchronized but Hashtable is synchronized
-   - HashMap allows one null key and any number of null values but Hashtable does not allow any null values at all
-   - Hashtable is slower compared to HashMap
-   - HashMap introduced strating from collection framework but Hashtable was there even before collection framework
+    62 . Difference between HashMap and Hashtable?
+    - HashMap is not synchronized but Hashtable is synchronized
+    - HashMap allows one null key and any number of null values but Hashtable does not allow any null values at all
+    - Hashtable is slower compared to HashMap
+    - HashMap introduced starting from collection framework but Hashtable was there even before collection framework
    
-   63 . Explain about fail fast iterators in java
-   - When iterator iterates over collection, collection should not be modified except by that iterator
+    63 . Explain about fail fast iterators in java
+    - When iterator iterates over collection, collection should not be modified except by that iterator
    
-   64 . What is serialization in java?
-   - Serialization is the process of converting an object in to bytes, so that it can be transmitted over the network,or stored in a flat file and can be recreated later. 
-   - Serialized object is an object represented as sequence of bytes that includes objects data, object type, and the types of data stored in the object.
+    64 . What is serialization in java?
+    - Serialization is the process of converting an object in to bytes, so that it can be transmitted over the network,or stored in a flat file and can be recreated later. 
+    - Serialized object is an object represented as sequence of bytes that includes objects data, object type, and the types of data stored in the object.
    
-   65 . How to make object serializable in java?
-   - Our class must implement serializable interface. If our object contains other objects those class must also implement serializable interface.
-   - We use ObjectOutputStream which extends OutputStream used to write objects to a stream.
-   - We use ObjectInputStream which extends InputStream used to read objects from stream.
+    65 . How to make object serializable in java?
+    - Our class must implement serializable interface. If our object contains other objects those class must also implement serializable interface.
+    - We use ObjectOutputStream which extends OutputStream used to write objects to a stream.
+    - We use ObjectInputStream which extends InputStream used to read objects from stream.
    
-   66 . If we don’t want some of the fields not to serialize How to do that?
-   - If we don’t want to serialize some fields during serialization we declare those variables as transient
-   
-   
-   
-   
-   
-   
-    
+    66 . If we don’t want some of the fields not to serialize How to do that?
+    - If we don’t want to serialize some fields during serialization we declare those variables as transient
+     
 - Spring
-
+    
+    1 . Explain Dependency Inversion and Inversion Of Control concepts in Spring?
+    - Inversion Of Control(IoC):
+        1. Is a design principle where the control of object(beans) creation and management is shifted from the application itself to an external container or framework(Spring IoC container is responsible)
+        2. The container manages the lifecycle of these beans and handles their dependencies, ensuring that the right dependencies are injected into the right places.
+        3. Overall architecture becomes more flexible and maintainable
+    - Dependency Injection(DI):
+        1. Dependency Injection is a specific implementation of the IoC principle
+        2. It is a technique used to inject the dependencies of a class into the class itslef
+        
+    2 . What are the common design patterns used in Spring applications?
+    - 
 
 - Springboot
 
