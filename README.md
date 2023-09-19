@@ -363,7 +363,13 @@
         2. It is a technique used to inject the dependencies of a class into the class itslef
         
     2 . What are the common design patterns used in Spring applications?
-    - 
+    - Singleton pattern: There is only one instance of a particular bean per Spring container. This ensures that beans are shared across the application reducing resource usage
+    - Prototype pattern: New instance per request
+    - Factory pattern: Spring IoC container acts as a factory that creates and manages bean instances based on their configurations
+    - DI pattern: Spring IoC container performs DI by injecting dependencies into classes either through constructor injection, setter injection or method injection using annotations
+    - Template Method pattern: Template classes provide a consistent approach to perform repetitive tasks such as database access(JdbcTemplate), transaction management(TransactionTemplate) and email sending(JavaMailSender)
+    
+    3 . 
 
 - Springboot
 
