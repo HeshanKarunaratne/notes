@@ -369,7 +369,29 @@
     - DI pattern: Spring IoC container performs DI by injecting dependencies into classes either through constructor injection, setter injection or method injection using annotations
     - Template Method pattern: Template classes provide a consistent approach to perform repetitive tasks such as database access(JdbcTemplate), transaction management(TransactionTemplate) and email sending(JavaMailSender)
     
-    3 . 
+    3 . Explain the difference between constructor and setter injection?
+    - In constructor injection, the required dependencies are passed to the class via its constructor at the time of object creation, the class is responsible for initializing its instance variables with the provided dependencies.
+    - In setter injection, the dependencies are provided through setter methods of the class. The class exposes setter methods for each dependency it requires, and the Spring container uses these methods to inject the required dependencies after creating the object.
+    - Use constructor injection for mandatory dependencies, immutability, safety and readability.
+    - Use setter injection for optional dependencies, flexibility to change dependencies, circular dependencies.
+    
+    4 . What is a Spring Bean?
+    - Any java object that is managed by Spring is called Spring Bean
+    
+    5 . @Value can help loading the values from?
+    - Environment properties, VM arguments, properties file
+    
+    6 . What are the places @PropertySource extract values from?
+    - Classpath
+    - Another properties file from another project
+
+    7 . How the singleton beans are initialized?
+    - Eagerly initialized
+    
+    8 . Is @Bean a stereotype annotation?
+    - No, If its stereotype it has a specific role
+    
+
 
 - Springboot
 
