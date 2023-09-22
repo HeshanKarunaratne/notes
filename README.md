@@ -391,7 +391,13 @@
     8 . Is @Bean a stereotype annotation?
     - No, If its stereotype it has a specific role
     
-
+    9 . Can you define private Beans using @Bean annotation inside a Configuration file that are annotated with @Configuration?
+    - No
+    
+    10 . What are the places where @Profile annotation can be used?
+    - @Bean, @Component, @Configuration, @Repository
+    
+    11 . 
 
 - Springboot
 
