@@ -397,10 +397,42 @@
     10 . What are the places where @Profile annotation can be used?
     - @Bean, @Component, @Configuration, @Repository
     
-    11 . 
-
 - Springboot
 
+    1 . How SpringBoot works internally?
+    - Entry point of springboot application is a class which contains @SpringBootApplication annotation and has the main method
+    - SpringBoot scan all the components included in the project by using @ComponentScan annotation
+    - Using @EnableAutoConfiguration annotation the springboot application configures the springboot application automatically
+    
+    2 . What are Spring boot starters?
+    - Springboot starter comprises of templates which provide a Rapid Application Development, spring boot starter contains a combination of all the relevant transitive dependencies
+    - Springboot starter solves the auto dependency resolution in a spring boot application
+    - Springboot resolves transitive dependencies internally
+    
+    3 . What are the major starter dependencies of springboot application?
+    - spring-boot-starter-parent: Provides default configurations for our application and a complete dependency tree to quickly build our springboot project
+    - spring-boot-starter-web: Uses Spring MVC, REST, tomcat as a default embedded server, and pulls in all dependencies related to web development
+    - spring-boot-starter-security: Automatically secures all HTTP endpoints with basic authentication
+    - spring-boot-starter-test: Primary dependency required for tests
+    - spring-boot-starter-actuator: Helps monitor application via HTTP endpoints, several endpoints are available out of the box
+    
+    4 . Can you disable particular auto-configuration in springboot?
+    - Yes
+    - @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) or @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
+
+    5 . Explain below annotations?
+    - @RestController: Class level annotation, so that spring container will consider as RestEndpoint
+    - @RequestMapping(value="/provider"): Define the REST url
+    - @PathVariable: To extract variable value
+    - @RequestParams: To extract query params 
+    - @ResponseEntity: To convert domain object into the response format 
+    - @GetMapping: To make endpoint compatible for GET requests 
+    - @ResponseBody: To generate the response message 
+    
+    6 . Can we disable the default web server in the Springboot application?
+    - Add below config to application.properties
+        - spring.main.web-application-type=none
+    
 
 - SOLID Principals
     - Single Responsibility Principal
