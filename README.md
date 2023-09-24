@@ -433,6 +433,17 @@
     - Add below config to application.properties
         - spring.main.web-application-type=none
     
+    7 . What is SpringBoot and why use springboot in your project?
+    - SpringBoot is a spring module for RAD(Rapid Application Development) with extra support of auto configuration and embedded application servers
+    
+    8 . What is the difference between @Controller and @RestController annotations?
+    - @Controller maps the model object to a view or template and makes it human readable but @RestController simply returns the object and data as JSON or XML
+    
+    9 . What is the difference between @RequestMapping and @GetMapping annotations?
+    - @RequestMapping can be used with GET,POST,PUT and many other request methods using the method attribute on the annotation
+    - GetMapping is only an extension of RequestMapping, which helps you to improve clarity on requests
+    
+    10 . 
 
 - SOLID Principals
     - Single Responsibility Principal
