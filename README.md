@@ -415,6 +415,9 @@
     - spring-boot-starter-security: Automatically secures all HTTP endpoints with basic authentication
     - spring-boot-starter-test: Primary dependency required for tests
     - spring-boot-starter-actuator: Helps monitor application via HTTP endpoints, several endpoints are available out of the box
+    - spring-boot-starter-jdbc: Provides libraries for connecting the application with JDBC
+    - spring-boot-starter-data-jpa: Provides access to different kinds of persistence stores
+    - spring-boot-starter-data-aop: Provides Aspect-Oriented Programming with cross cutting concerns
     
     4 . Can you disable particular auto-configuration in springboot?
     - Yes
@@ -434,7 +437,7 @@
         - spring.main.web-application-type=none
     
     7 . What is SpringBoot and why use springboot in your project?
-    - SpringBoot is a spring module for RAD(Rapid Application Development) with extra support of auto configuration and embedded application servers
+    - SpringBoot is a spring module for RAD(Rapid Application Development) with extra support of auto configuration, embedded application servers, auto dependency resolution, management endpoints, spring boot CLI
     
     8 . What is the difference between @Controller and @RestController annotations?
     - @Controller maps the model object to a view or template and makes it human readable but @RestController simply returns the object and data as JSON or XML
@@ -443,7 +446,50 @@
     - @RequestMapping can be used with GET,POST,PUT and many other request methods using the method attribute on the annotation
     - GetMapping is only an extension of RequestMapping, which helps you to improve clarity on requests
     
-    10 . 
+    10 . Why should you use Spring Boot?
+    - Stability: Changes are backward compatible
+    - Based on JVM: Spring is Java based
+    - Connectivity: Can connect to any database
+    - Cloud Native: Ready for cloud out of the box
+    - Flexibility: 
+    - Open Source: Easy to setup and configure
+    
+    11 . What are the differences between Spring and Springboot?
+    - Spring
+        - Spring is a web application framework based on java
+        - Provides tools and libraries to create customized web application
+    - SpringBoot
+        - A module of Spring
+        - Used to create a Spring application project which can just run/execute
+    
+    12 . Advantages of Springboot?
+    - Provides auto configuration to load a set of default configuration for a quick start of the application
+    - Comes with embedded tomcat to avoid the usage of WAR files
+    - Provides CLI tools to develop and test applications
+    - Provides Spring boot starters to ensure dependency management
+    - Consists of APIs for monitoring and managing applications in dev and prod
+    - Integrates with Spring JDBC, JPA, Data, Security by avoiding boilerplate code
+
+    13 . What are springboot starters?
+    - Springboot starters are a set of dependency management providers which can be used in the application to enable dependencies
+    - These starters make development easy and rapid
+    - All available starters come under the org.springframework.boot group
+
+    14 . Explain Spring Actuator and its advantages?
+    - Provides a very easy way to access production ready rest points and fetch all kinds of information from the web
+    
+    15 . What is spring boot dependency management?
+    - Is used to manage dependencies and configuration automatically without you specifying the version for any of that dependencies
+    
+    16 . What is the need for spring boot DevTools?
+    - Set of tools that aims to make the process of developing an application easier
+    - This module is automatically disabled in production
+    
+    17 . What is Spring initializer?
+    - Is a web tool provided by Spring. With this tool you can create Spring boot projects 8just by providing project details
+    
+    18 . 
+
 
 - SOLID Principals
     - Single Responsibility Principal
