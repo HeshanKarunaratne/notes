@@ -488,7 +488,18 @@
     17 . What is Spring initializer?
     - Is a web tool provided by Spring. With this tool you can create Spring boot projects 8just by providing project details
     
-    18 . 
+    18 . What are the differences between JPA and Hibernate?
+    - JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
+    - Hibernate is an implementation of Java Persistence API and offers loose coupling
+    
+    19 . What do you understand by Spring Data?
+    - Make it easy for the developers to use relational and non-relational databases, cloud based data services and other data access technologies
+    
+    20 . What is the best way to expose custom application configuration with SpringBoot?
+    - Define a configuration component using the @ConfigurationProperties
+    
+    21 . 
+    
 
 
 - SOLID Principals
