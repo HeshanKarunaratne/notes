@@ -498,7 +498,15 @@
     20 . What is the best way to expose custom application configuration with SpringBoot?
     - Define a configuration component using the @ConfigurationProperties
     
-    21 . 
+    21 . What is the difference between @Autowired and @Inject?
+    - @Inject is a standard annotation for dependency injection while @Autowired is a specific annotation in Spring for dependency injection
+    - @Inject is from pure Java EE, while @Autowired is from Spring framework
+    
+    22 . What is the difference between @Component and @Bean?
+    - If a class is pre defined and wants to create object inside container then we need to use @Bean(Java based configuration)
+    - @Component creates object inside spring container, this can be only used if we have source code of a class
+    
+    23 . 
     
 
 
