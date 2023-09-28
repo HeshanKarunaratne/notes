@@ -506,9 +506,55 @@
     - If a class is pre defined and wants to create object inside container then we need to use @Bean(Java based configuration)
     - @Component creates object inside spring container, this can be only used if we have source code of a class
     
-    23 . 
+    23 . How many types of IOC containers are there in Spring?
+    - BeanFactory: Is a factory class that contains a collection of beans
+    - ApplicationContext: ApplicationContext interface is built on top of the BeanFactory and it provides additional functionality like Annotation support, Reactive programming
     
+    24 . What is the use of @Qualifier annotation in Spring framework?
+    - When we create more than one bean of the same type and want to wire only one of them with a property we can use the @Qualifier annotation
+    
+    25 . What is @Primary annotation in Spring?
+    - Indicates that a bean should be given preference when multiple candidates are qualified to autowired a single valued dependency
+    - In case of Autowiring process, if no Qualifier is used, @Primary is given highest priority
+    
+    26 . What are the lifecycle methods in Spring?
+    - init and destroy method which are executed by spring container
+    
+    27 . What are different ways of writing lifecycle methods in Spring?
+    - Using XML
+    - Using spring interfaces: implements InitializingBean, DisposableBean
+    - Using Annotations: @PostConstruct, @PreDestroy
+    
+    28 . What do you understand by validations in Spring MVC?
+    - It is used to restrict the input provided by the user
+    - Spring validations: @NotNull, @Pattern, @Email, @Past, @NotBlank
+    - @Valid must be used at Method Parameter
 
+    29 . Which annotations are used to define Global Exception Handler class?
+    - @ControllerAdvice or @RestControllerAdvice
+    - @ExceptionHandler
+    
+    30 . What is the main difference between Spring core and Spring MVC?
+    - Spring MVC is built using Spring core
+    - Spring core is an IOC container that injects dependencies into various bean classes
+    - Spring MVC leverages the power of that IOC container to implement web based applications
+    
+    31 . What is ResponseEntity<T> in Spring REST?
+    - Output of RestController is ResponseEntity. It must be used for method ReturnType
+    
+    32 . What is ORM?
+    - ORM stands for Object Relational Mapping
+    - Mainly for database operation and every operation need to be in Object format(save, update, delete, select)
+    
+    33 . What is the difference between JPA and Hibernate?
+    - JPA is a specification of oracle
+    - Hibernate is a JPA implementation
+    
+    34 . What is the Spring boot Data JPA repository?
+    - Mainly there are 3 repositories
+        - CrudRepository
+        - PagingAndSortingRepository
+        - JpaRepository
 
 - SOLID Principals
     - Single Responsibility Principal
