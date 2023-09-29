@@ -555,7 +555,80 @@
         - CrudRepository
         - PagingAndSortingRepository
         - JpaRepository
-
+        
+    35 . What is the difference between PagingAndSortingRepository and JpaRepository?
+    - JpaRepository works only for relational databases
+    - PagingAndSortingRepository work for both SQL and NoSQL databases
+    
+    36 . What are the predefined methods given by @Repository interfaces?
+    - save(), delete(), findById(), findAll(), deleteById(), findAll(Sort), findAll(Pageable)
+    
+    37 . What is @Query used for?
+    - @Query annotation is used to write custom queries
+    - By using this query we can write JPQL/HQL query which is written by the class name(DB table name) and variable name(Column name)
+    
+    38 . What is PlatformTransactionManager?
+    - PlatformTransactionManager is an interface that extends TransactionManager
+    - It enables @Transactional annotation which does commit in case of success, and rollback in case of exception/failure
+    
+    39 . Difference between findById() and getOne()?
+    - If data is not found in findById() method then it will return null, means it return Optional<T> class
+    - If data is not found in getOne() method then it will throw an exception called EntityNotFoundException
+    
+    40 . What is the usage of Dialect?
+    - Dialect is a class defined in JPA
+    - It generates SQLs at runtime based on our operations
+    - If we move from one Database to another database we need to update database dialect property in application.properties
+    
+    41 . What is the default FetchType in JPA?
+    - LAZY: one-to-many, many-to-many
+    - EAGER: one-to-one, many-to-one
+    
+    42 . How can we see generated SQLs at console files?
+    - spring.jpa.show-sql=true(default is false)
+    
+    43 . What are the different types of joins supported by JPA?
+    - INNER JOIN: Gets rows connected from both tables
+    - LEFT JOIN: Gets all rows from left table and connected rows from right, if any value is missing from right return as null
+    - RIGHT JOIN: Gets all rows from right table and connected rows from left, if any value is missing from left return as null
+    - FULL JOIN: Gets all connected rows from both tables, and if any value missing return as null
+   
+    44 . What are some essential features of Spring Security?
+    - Supports authentication and authorization in a flexible and comprehensive manner
+    - Java Authentication and Authorization Service is used for authentication purposes
+    - Enables Single Sign On so that users can access multiple applications with just one account(username and password)
+    
+    45 . What do you mean by Basic Authentication?
+    - We send a username and password using the HTTP header to enable us to access the resource
+    - Username and password are encoded using base64 encoding in Basic Authentication
+    - eg: Value = username:password -> Encoded = base64(Value) -> Authorization = Basic <Encoded>
+    
+    46 . Explain SecurityContext and SecurityContextHolder?
+    - SecurityContext: Holds the data about the currently authenticated user
+    - SecurityContextHolder: Easiest way to get currently authenticated user is via a static call to SecurityContextHolder
+    
+    47 . Explain spring security OAuth2?
+    - User/Resource Owner: The end-user
+    - Client: The application requesting an access token
+    - Authorization Server: The server that is used to authenticate the user. It issues access tokens and tracks them throughout their lifetime
+    - Resource Server: The API that provides access to the requested resource. It validates the access tokens and provides authorization
+    
+    48 . What is method security and why do we need it?
+    - The ROLE of the user is used to determine which user is authorized to access the resource
+    - A security measure applied to a method prevents unauthorized users and only allows authentic users
+    
+    49 . What do you mean by hashing in spring security?
+    - Store encrypted passwords in a database is called hashing
+    
+    50 . What is AuthenticationManager in Spring Security?
+    - How authentication will happen
+    - AuthenticationManager contains references to all AutheticationProviders
+    
+    51 . What do you mean by session management in Spring security?
+    - Session management relates to securing and managing multiple users sessions against their request
+    - To control HTTP sessions, Spring security uses SessionManagementFilter and SessionAuthenticationStrategy
+    
+    
 - SOLID Principals
     - Single Responsibility Principal
         - A Class should have one and only one responsibility
