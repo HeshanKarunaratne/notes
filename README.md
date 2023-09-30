@@ -655,7 +655,76 @@
         - Once the transaction is committed, the updates and modifications to the DB are stored in and written to disk and they persist even if a system failure occurs
 
 - Microservices
+    1 . What is microservice architecture?
+    - Architecture to develop complex applications
+    - Built as a collection of small, independent services
+    - Services communicate with each other through APIs
+    - Modular and decoupled architecture
+    
+    2 . What are the benefits of using a microservice architecture?
+    - Scalability
+    - Resilience
+    - Flexibility, faster development cycles
+    - Easier maintenance due to modular independent nature
+    
+    3 . What is Spring Cloud, and what are its key features?
+    - Spring Cloud is a framework built on top of SpringBoot
+    - Used for development and deployment of microservices
+    - Features: 
+        - Service discovery
+        - Load balancing
+        - Circuit breakers
+        - API Gateway
+        - Distributed tracing
+        - Distributed configurations
+        
+    4 . What is service discovery?
+    - The process of dynamically locating and communicating with services
+    - Service discovery is achieved using Netflix Eureka
+    - Allows services to register themselves and discover other services, enabling communication between microservices
+    
+    5 . Explain the role of API gateways in microservices?
+    - Acts as a single entry point for client requests to microservices
+    - Handles dynamic routing, load balancing
+    - Support intergration with Service Discovery and Authentication
+    
+    6 . What is circuit breaking and how is it implemented using Spring cloud?
+    - It is a pattern that prevents cascading failures in microservices
+    - Circuit breaking is implemented using Resillience4J library
+    - Monitors the health of dependent services and, if failures occur, opens the circuit to stop sending requests
+    
+    7 . What is load balancing and how it is handled in microservices?
+    - Distribution of client requests across multiple instances of a service
+    - Spring cloud integrates with load balancers like Cloud Load balancer
+    - Handles load distribution without manual configuration
+    
+    8 . What are the tools used to aggregate microservices log files?
+    - ELK stack
+    - Splunk
+    - Fluentd
 
+    9 . What is distributed tracing and how is it implemented in Spring Cloud?
+    - It is a technique used to track and monitor requests as they flow through multiple microservices
+    - It is implemented through integration with tracing system: Zipkin
+    - Sleuth used for tracing information across microservices, transferred to Zipkin Server
 
+    10 . What is the purpose of Spring Cloud Config?
+    - It is centralized management of configuration properties for microservices
+    - It uses configurations in a version controlled repository and provides a configuration server
+    - Can retrieve their configuration information at runtime
+    
+    11 . What are the different approaches for inter service communication in microservices?
+    - HTTP/ APIs
+    - Asynchronous messaging: Kafka, RabbitMQ
+    - Event driven
+    
+    12 . What is service orchestration and service choreography in microservices?
+    - Service Orchestration is a centralized approach where a central component controls and coordinates the execution flow of microservices
+    - Service Choreography is a decentralized approach where microservices collaborate with each other directly, without a central controller
+    
+    13 . What is the role of containers and container orchestration platforms?
+    - It is lightweight and portable environment for packaging and deploying microservices
+    - Consistency across different environments
+    - They handle tasks like deployment, scaling, service discovery, load balancing and fault tolerance  
 
 - SQL
