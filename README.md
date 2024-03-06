@@ -93,6 +93,10 @@
             - Clean neat APIs
             
     - Functional Interfaces
+      - Consumer: Accept One argument but does not return anything
+      - Function: Accept One argument and return one argument
+      - Predicate: Accept One argument and return Boolean
+      - Supplier: Do not accept arguments but return One argument
     - Default Methods
         1. What is a default method and when do we use it?
             - Default method is a method with an implementation which can be found in an interface
@@ -350,6 +354,21 @@
    
     66 . If we don’t want some of the fields not to serialize How to do that?
     - If we don’t want to serialize some fields during serialization we declare those variables as transient
+
+    67 . What is the difference between Comparable and Comparator interfaces?
+    - Comparable(Single sorting sequence, actual class is modified) 
+      - compareTo(X x)
+      - Collections.sort(list)
+      - java.lang package
+    - Comparator(Multiple sorting sequence, actual class is not modified)
+      - compare(X x, X y)
+      - Collections.sort(list, Comparator)
+      - Best solution
+      - java.util package
+      
+    67 . What is Serial Version UID?
+      - To remember loaded serialized class and serialized object are compatible
+      - If serialVersionUID is not provided in a Serializable class, the JVM will generate one automatically
      
 - Spring
     
@@ -655,6 +674,7 @@
         - Once the transaction is committed, the updates and modifications to the DB are stored in and written to disk and they persist even if a system failure occurs
 
 - Microservices
+
     1 . What is microservice architecture?
     - Architecture to develop complex applications
     - Built as a collection of small, independent services
