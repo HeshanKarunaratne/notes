@@ -415,6 +415,10 @@
     
     10 . What are the places where @Profile annotation can be used?
     - @Bean, @Component, @Configuration, @Repository
+
+    11 . Differences between Spring and Springboot?
+    - Spring
+      - 
     
 - Springboot
 
@@ -748,3 +752,117 @@
     - They handle tasks like deployment, scaling, service discovery, load balancing and fault tolerance  
 
 - SQL
+    1 . What is a database?
+    - A database is an organized collection of logically related data
+
+    2 . What is DBMS?
+    - DBMS is a software for database management
+
+    3 . Advantages of DBMS?
+    - Data security
+    - Data quality
+    - Faster data accessibility
+    - Data Backup
+    - Reduced Data Redundancy
+
+    4 . What are the differences between DBMS and RDBMS?
+    - DBMS
+      - Stores data in a flat file format
+      - No relationship between its data
+      - Cannot normalize data
+      - Preferred for small datasets
+    - RDBMS
+      - Stores data in tables, consisting rows and columns
+      - Stores data in multiple tables and there are relationship between the tables
+      - Can normalize data
+      - Preferred for larger datasets
+
+    5 . What is query optimization?
+    - Finds the best methods for implementing each query
+    - Speeds up the process of fetching information from the database
+    - Reduces the system resources required to run a query
+    - Enhances the performance of a query
+    
+    6 . Disadvantages of Data Replication?
+    - Data across multiple servers
+    - Increases data redundancy
+
+    7 . Advantages of Data Replication?
+    - Disaster recovery
+    - Improve data accessibility
+    - Enhance server performance
+
+    8 . What is normalization and what are the different types of normalization?
+    - Organizing data in such a way that it reduces data redundancy
+    - Is done by dividing the large table into multiple tables and establishing a relationship between them
+
+    9 . Explain 1NF, 2NF and 3NF?
+    - 1NF
+      - Each cell in a table must contain only one value
+    - 2NF
+      - Table should be in 1NF and all non key columns of the tables must depend on the primary key
+      - There should not be any partial dependency between its data
+    - 3NF
+      - Table should be in 2NF
+      - There should be no transitive dependencies
+
+    10 . What is De-Normalization?
+    - Is a technique that is used to add redundant data to a table in order to optimize database access speed
+
+    11 . What are the types of keys in a database?
+    - Candidate key
+    - Primary key
+    - Secondary key
+    - Composite key
+
+    12 . Differences between unique key and primary key?
+    - Unique Key
+      - To uniquely identify a row, but can contain NULL values
+      - There can be multiple unique keys
+    - Primary Key
+      - To uniquely identify a row, cannot contain NULL values
+      - Can only contain one primary key or Composite primary key
+
+    13 . Difference between Triggers and Stored Procedures?
+    - Triggers
+      - Invoked implicitly
+      - Special type of stored procedures
+    - Stored Procedures
+      - Pre written code
+      - Invoked explicitly
+      - Can accept inputs and also return a result after execution
+
+    14 . What are indexes?
+    - Indexing is a data structure technique created for the performance of a database
+    - Clustered Index
+      - Similar records are grouped together and indexes are created for these groups
+      - Data is sorted in alphabetical order
+      - One clustered index for a table
+      - Index points to the block, not the record itself
+    - Non Clustered Index
+      - Index points to the location where the data is stored
+      - There can be multiple Non Clustered Indexes in the table
+
+    15 . Wht do you understand by sub queries in SQL?
+    - Sub query is simply defined as a query inside another query
+    - A sub query must always be enclosed in parentheses
+
+    16 . What are the differences between HAVING and WHERE clauses?
+    - WHERE
+      - Used to filter records in a database
+      - Filters the data by individual rows
+      - Cannot work with aggregate functions
+      - Can use with select, update, delete
+    - HAVING
+      - Filters based on groups of data
+      - Must use the GROUP BY clause
+      - Can work with aggregate functions
+      - Can only work with select statements
+
+    17 . What are the differences between drop, truncate and delete commands?
+    - Truncate
+      - Delete all the rows of the table at once, but does not delete the table, DDL syntax
+    - Delete
+      - Delete existing records from a table, can delete single or multiple records, DML syntax
+    - Drop
+      - Drop existing records as well as the table, DDL syntax
