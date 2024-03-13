@@ -367,9 +367,42 @@
       - java.util package
       
     67 . What is Serial Version UID?
-      - To remember loaded serialized class and serialized object are compatible
-      - If serialVersionUID is not provided in a Serializable class, the JVM will generate one automatically
-     
+    - To remember loaded serialized class and serialized object are compatible.
+    - If serialVersionUID is not provided in a Serializable class, the JVM will generate one automatically
+
+    68 . What are functional interfaces in Java?
+    - An interface that contains one abstract method.
+    - Can have any number of default methods
+    - Functionality can be implemented using Lambda expression, anonymous class or method reference
+
+    69 . Explain exception hierarchy?
+    - Throwable
+      - Exception(recoverable)
+        - Checked
+        - Runtime
+      - Error(Non recoverable)
+
+    70 . What is CountDownLatch?
+    - Can cause a thread to block until other threads have completed a given task
+
+    71 . What is CyclicBarrier?
+    - Allows fixed number of threads that must wait for each other to reach a common point before continuing execution
+  
+    72 . What are the types of inheritance in Java?
+    - Single level: Only one class is derived from the parent class
+    - Multi level: One class inherits the features from a parent class and the newly created sub-class becomes the base class for another new class 
+    - Hierarchical: Many subclasses inherit from one single class is known as Hierarchical Inheritance
+    - Multiple: Subclass can inherit features from more than one parent class
+    - Hybrid: Combination of more than two types of inheritance
+
+    73 . What is the difference between permgen and metaspace?
+    - Permgen is a special heap space that keeps track of loaded class metadata and JVM stores all the static content in this memory section
+    - It was removed completely in JDK 8
+    - Metaspace is the new memory space and this native memory region grows automatically by default
+
+    74 . Can you start a thread twice in java?
+    - No, it will give IllegalThreadStateException
+
 - Spring
     
     1 . Explain Dependency Inversion and Inversion Of Control concepts in Spring?
@@ -416,9 +449,25 @@
     10 . What are the places where @Profile annotation can be used?
     - @Bean, @Component, @Configuration, @Repository
 
-    11 . Differences between Spring and Springboot?
+    11 . Differences between Spring and Spring Boot?
     - Spring
-      - 
+      - Widely used Java EE framework for building web applications
+      - Primary feature is Dependency Injection
+      - Developer writes lot of boilerplate code to do the minimal task
+      - To test the project we need to explicitly setup the server
+      - Does not provide support for in memory database
+    - Spring Boot
+      - Widely used to develop REST APIS
+      - Primary feature is Autoconfiguration
+      - Reduced boilerplate code
+      - Offers embedded servers like jetty or tomcat
+      - Supports in memory database such as H2
+
+    12 . What is autowiring?
+    - The process of injecting dependencies into a spring bean automatically
+
+    13 . What is the difference between war and jar?
+    - Jar files are used to packaging and distributing standalone java applications while War files are used to packaging and distributing web applications
     
 - Springboot
 
