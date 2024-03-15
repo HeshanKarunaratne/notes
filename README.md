@@ -3,17 +3,22 @@
 - Core Java
 
     1 . Why Java is not 100% Object oriented?
-    - Because of Primitive data types eg: boolean, byte, char, int, float, double, long, short
+    - Because of Primitive data types which are not objects eg: boolean, byte, char, int, float, double, long, short
     - We can use wrapper classes to wrap primitive data types into an object
+    - Java allows the creation of static methods which are not tied to specific instance of a class
+    - Lack of multiple inheritance which is a characteristic of some OOP languages
     
-    2 . Why pointers are not used in java
+    2 . Why pointers are not used in java?
     - They are unsafe, increases the complexity of the program, JVM is responsible for memory allocation thus pointers are not needed in java
 
     3 . What is JIT compiler in Java?
-    - Convert byte codes into machine codes and to improve performance in java application
+    - Just In Time compiler which is a component of JVM that dynamically compiles byte codes into machine codes and to improve performance in java application
     
     4 . Why String is immutable in java?
-    - String literals are kept inside String pool and it requires Strings to be immutable. If there is a String in the pool it will get referenced otherwise a new String object will be created and will get a reference
+    - Thread safe
+    - Immutability allows strings to be cached and reused, improving performance
+    - Immutable strings prevent unintended changes, enhancing security
+    - String literals are kept inside String pool, and it requires Strings to be immutable. If there is a String in the pool it will get referenced otherwise a new String object will be created and will get a reference
     
     5 . What is a marker interface?
     - A marker interface is an empty interface. eg: Serializable, Cloneable(To get an exact duplicate object)
@@ -22,30 +27,36 @@
     
     6 . Can you override a private or static method in Java?
     - Cannot override a private or static methods in java
-    - We cannot override a private method in sub class because it is not accessible there
+    - We cannot override a private method in subclass because it is not accessible there
     - For static methods if we create a similar method with same return type and same method arguments in child class then it will hide the superclass method, also known as method hiding
 
     7 . Does finally always execute in Java?
     - This will not execute in System.exit() or in System crash
     
     8 . What methods does the Object class have?
-    - clone(), equals(), finalize(), hashCode(), toString(), getClass()
+    - clone(): Creates and return a copy of the object
+    - equals(): Compares the object with another object
+    - finalize(): Called by the GC on an object when GC determines that there are no more references to that object
+    - hashCode(): Returns a hash code value for the object
+    - toString(): Returns a string representation of the object
+    - getClass(): Returns the runtime class of this object
     
     9 . How to make a class Immutable?
     - Declare the class as final
     - Make all fields private and final
-    - Dont provide setter methods for variables
-    - Initialize all the fields via a constructor
+    - Don't provide setter methods for variables
+    - Don't provide any method that modify the objects state
 
-    10 . Boxing and unBoxing
+    10 . Boxing and unBoxing in Java?
     - Boxing is the process of converting a primitive datatype into an object wrapper datatype
     - Unboxing is the process of converting a value from an object wrapper type back to the native primitive value
+    - Boxing allows primitive data types to be used in collections and other contexts where objects are required
 
     11 . What is JDK, JRE and JVM
     - JDK > JRE > JVM
-    - JDK: Contains JRE and other development tools
-    - JRE: Runtime Environment for the bytecode to execute
-    - JVM: Convert bytecode to machine code using a platform independent virtual machine
+    - JDK: Java Development Kit which includes JRE, tools for compiling, debugging and running the java programs, along with libraries and documentation
+    - JRE: Java Runtime Environment for the bytecode to execute
+    - JVM: Java Virtual Machine interprets compiled java code and translate it into machine code for execution
     - Java Program ---Java compiler--> Java ByteCode ---JVM---> Machine Code
     
     12 . Why main() method is public static?
@@ -55,36 +66,46 @@
     - String is immutable while StringBuilder and StringBuffer are mutable
     
     14 . Difference between == and equals() method in Java?
-    - equals() used for content comparison while == checks same objects points to the same memory location
+    - equals() method available in Javas Object class which used for content comparison
+    - == checks objects points to the same memory location
     
     15 . Difference between StringBuilder and StringBuffer?
-    - StringBuilder is not thread safe while StringBuffer is thread safe
-    - StringBuffer is slower compared to StringBuilder 
+    - StringBuilder
+      - Not thread safe
+      - Faster compared to StringBuffer
+      - Suitable for single thread environments
+    - StringBuffer
+      - Thread safe
+      - Slower compared to StringBuilder
+      - Suitable for multiple thread environments
     
     16 . Difference between List and Set
     - List allow duplicates, Set doesn't allow duplicates
     - List maintains insertion order, Set doesn't maintain insertion order
     - List allows any number of null values, Set can have only a single null value at most
-    
+    - Lists are typically implemented using arrays or linked lists, while sets are implemented using hash table and trees
+    - Lists are generally more efficient for access by index, while sets are optimized for membership testing and uniqueness
+
     17 . Difference between ArrayList and LinkedList
     - ArrayList internally uses a dynamic array to store elements, LinkedList internally uses a doubly linked list to store elements
     - Manipulation of ArrayList is slow, while LinkedList is faster
     - ArrayList consumes less memory, while LinkedList consumes more memory since it stores references to previous and next elements
     - ArrayList implements List interface only, LinkedList implements List and Deque interfaces
+    - ArrayList provides fast access to elements by index, while in LinkedList accessing elements by index is slower
     
     18 . Difference between Collections and Streams
-    - Collections are used to store and group the data while streams are used to perform filtering,matching,mapping operations
+    - Collections are concrete data structures like lists, sets and maps, while Streams are not data structures
+    - Collections are used to store and group the data while streams are used to perform filtering,matching,mapping operations(aggregate operations)
     - Can add or remove elements from Collections but cannot do that in Streams
-    - Collections need to be iterated externally(for loops) but Streams are iterated internally(for-each())
     
     19 . What are the new features in Java 8?
     - Lambda Expressions
     - Method References
         1. What ware different kind of method references?
             - Reference to a static method
-            - Reference to an instance method of a particular object
-            - Reference to an instance method of an arbitrary object of a particular type
             - Reference to a constructor
+            - Reference to an instance method reference of an object
+            - Reference to an instance method reference of a class type
            
     - Optional
         1. What are the advantages of Optionals?
@@ -164,8 +185,8 @@
     - All the methods are public in an interface
     - Multiple Inheritance helps to add new methods without affecting the old interfaces
     
-    29 . what are static blocks and static initalizers in Java?
-    - Static blocks or static initializers are used to initalize static fields in java.
+    29 . what are static blocks and static initializers in Java?
+    - Static blocks or static initializers are used to initialize static fields in java.
     - Static blocks gets executed exactly once when the class is loaded 
     - Static blocks are executed even before the constructors are executed.
     
@@ -287,10 +308,10 @@
     51 . What are nested classes in java?
     - Class declared with in another class is defined as nested class
         1. Static nested class
-        1. Non static nested class
+        2. Non-static nested class
     
-    52 . What are inner classes or non static nested classes in java?
-    - Nested classes without any static keyword declaration in class definition are defined as non static nested classes. Generally non static nested classes are referred as inner classes
+    52 . What are inner classes or non-static nested classes in java?
+    - Nested classes without any static keyword declaration in class definition are defined as non-static nested classes. Generally non static nested classes are referred as inner classes
     - There are 4 types of Inner classes
         1. Local Inner Class
         2. Member Inner Class
@@ -403,6 +424,12 @@
     74 . Can you start a thread twice in java?
     - No, it will give IllegalThreadStateException
 
+    75 . Why do we use Functional Interfaces in java?
+    - Enables the use of Lambda expressions and method references
+    - Compatible with stream API and parallel processing
+    - Enhance code readability, maintainability and re-usability
+
+
 - Spring
     
     1 . Explain Dependency Inversion and Inversion Of Control concepts in Spring?
@@ -412,7 +439,7 @@
         3. Overall architecture becomes more flexible and maintainable
     - Dependency Injection(DI):
         1. Dependency Injection is a specific implementation of the IoC principle
-        2. It is a technique used to inject the dependencies of a class into the class itslef
+        2. It is a technique used to inject the dependencies of a class into the class itself
         
     2 . What are the common design patterns used in Spring applications?
     - Singleton pattern: There is only one instance of a particular bean per Spring container. This ensures that beans are shared across the application reducing resource usage
@@ -481,7 +508,7 @@
     - Springboot starter solves the auto dependency resolution in a spring boot application
     - Springboot resolves transitive dependencies internally
     
-    3 . What are the major starter dependencies of springboot application?
+    3 . What are the major starter dependencies of spring boot application?
     - spring-boot-starter-parent: Provides default configurations for our application and a complete dependency tree to quickly build our springboot project
     - spring-boot-starter-web: Uses Spring MVC, REST, tomcat as a default embedded server, and pulls in all dependencies related to web development
     - spring-boot-starter-security: Automatically secures all HTTP endpoints with basic authentication
@@ -489,9 +516,9 @@
     - spring-boot-starter-actuator: Helps monitor application via HTTP endpoints, several endpoints are available out of the box
     - spring-boot-starter-jdbc: Provides libraries for connecting the application with JDBC
     - spring-boot-starter-data-jpa: Provides access to different kinds of persistence stores
-    - spring-boot-starter-data-aop: Provides Aspect-Oriented Programming with cross cutting concerns
+    - spring-boot-starter-data-aop: Provides Aspect-Oriented Programming with cross-cutting concerns
     
-    4 . Can you disable particular auto-configuration in springboot?
+    4 . Can you disable particular auto-configuration in spring boot?
     - Yes
     - @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) or @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 
@@ -504,15 +531,15 @@
     - @GetMapping: To make endpoint compatible for GET requests 
     - @ResponseBody: To generate the response message 
     
-    6 . Can we disable the default web server in the Springboot application?
+    6 . Can we disable the default web server in the Spring Boot application?
     - Add below config to application.properties
         - spring.main.web-application-type=none
     
-    7 . What is SpringBoot and why use springboot in your project?
-    - SpringBoot is a spring module for RAD(Rapid Application Development) with extra support of auto configuration, embedded application servers, auto dependency resolution, management endpoints, spring boot CLI
+    7 . What is SpringBoot and why use spring boot in your project?
+    - SpringBoot is a spring module for RAD(Rapid Application Development) with extra support of autoconfiguration, embedded application servers, auto dependency resolution, management endpoints, spring boot CLI
     
     8 . What is the difference between @Controller and @RestController annotations?
-    - @Controller maps the model object to a view or template and makes it human readable but @RestController simply returns the object and data as JSON or XML
+    - @Controller maps the model object to a view or template and makes it human-readable but @RestController simply returns the object and data as JSON or XML
     
     9 . What is the difference between @RequestMapping and @GetMapping annotations?
     - @RequestMapping can be used with GET,POST,PUT and many other request methods using the method attribute on the annotation
@@ -542,8 +569,8 @@
     - Consists of APIs for monitoring and managing applications in dev and prod
     - Integrates with Spring JDBC, JPA, Data, Security by avoiding boilerplate code
 
-    13 . What are springboot starters?
-    - Springboot starters are a set of dependency management providers which can be used in the application to enable dependencies
+    13 . What are spring boot starters?
+    - Spring boot starters are a set of dependency management providers which can be used in the application to enable dependencies
     - These starters make development easy and rapid
     - All available starters come under the org.springframework.boot group
 
@@ -558,7 +585,7 @@
     - This module is automatically disabled in production
     
     17 . What is Spring initializer?
-    - Is a web tool provided by Spring. With this tool you can create Spring boot projects 8just by providing project details
+    - Is a web tool provided by Spring. With this tool you can create Spring boot projects just by providing project details
     
     18 . What are the differences between JPA and Hibernate?
     - JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
@@ -575,8 +602,8 @@
     - @Inject is from pure Java EE, while @Autowired is from Spring framework
     
     22 . What is the difference between @Component and @Bean?
-    - If a class is pre defined and wants to create object inside container then we need to use @Bean(Java based configuration)
-    - @Component creates object inside spring container, this can be only used if we have source code of a class
+    - @Bean is method level but @Component is class level
+    - The @Component annotation doesn't need to be used with the @Configuration annotation, whereas the @Bean needs to be within a class annotated with @Configuration
     
     23 . How many types of IOC containers are there in Spring?
     - BeanFactory: Is a factory class that contains a collection of beans
@@ -587,7 +614,7 @@
     
     25 . What is @Primary annotation in Spring?
     - Indicates that a bean should be given preference when multiple candidates are qualified to autowired a single valued dependency
-    - In case of Autowiring process, if no Qualifier is used, @Primary is given highest priority
+    - In case of Auto wiring process, if no Qualifier is used, @Primary is given highest priority
     
     26 . What are the lifecycle methods in Spring?
     - init and destroy method which are executed by spring container
@@ -694,7 +721,7 @@
     
     50 . What is AuthenticationManager in Spring Security?
     - How authentication will happen
-    - AuthenticationManager contains references to all AutheticationProviders
+    - AuthenticationManager contains references to all AuthenticationProviders
     
     51 . What do you mean by session management in Spring security?
     - Session management relates to securing and managing multiple users sessions against their request
@@ -759,7 +786,7 @@
     5 . Explain the role of API gateways in microservices?
     - Acts as a single entry point for client requests to microservices
     - Handles dynamic routing, load balancing
-    - Support intergration with Service Discovery and Authentication
+    - Support integration with Service Discovery and Authentication
     
     6 . What is circuit breaking and how is it implemented using Spring cloud?
     - It is a pattern that prevents cascading failures in microservices
@@ -914,4 +941,4 @@
     - Delete
       - Delete existing records from a table, can delete single or multiple records, DML syntax
     - Drop
-      - Drop existing records as well as the table, DDL syntax
+      - Drop existing records as well as the table, DDL syntax 8
