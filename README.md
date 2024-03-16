@@ -132,60 +132,67 @@
     - We can define any number of other methods like default methods, static methods
     
     21 . What is the order of JVM matching method arguments?
-    - 
+    - Exact match: JVM looks for an exact match between the method parameters and the arguments passed.
+    - Widening primitive conversion: If an exact match isn't found, JVM looks for widening primitive conversions.
+    - Autoboxing: If no match is found with widening primitive conversions, autoboxing is attempted.
+    - Varargs: Finally, if no exact match is found, the JVM considers varargs as a last resort.
     
     22 . Why do we need OOP?
     - It helps us to think in terms of Real world objects
     - Pillars of OOP?
-        1. Abstraction: Show only what is necessary, hiding the complexity
-            - Abstract methods do not have an implementation, it only have method signatures
+        1. Abstraction: Show only what is necessary, hiding the complexity. It helps in reducing programming complexity and effort by providing simplified view of objects
+            - Abstract methods do not have an implementation, it only has method signatures
             - If a class have abstract method then the class needs to be declared abstract
             - An abstract class does not necessarily have an abstract method
             - Cannot be instantiated but abstract classes can have constructors: constructor can only be called during constructor chaining
             - Can have static methods and final methods
-            - Abstract class implements interfaces but it does not need to implement all methods
+            - Abstract class implements interfaces, but it does not need to implement all methods
             - Abstract classes cannot be final because making an abstract class final will stop the abstract class from being extended
 
-        2. Polymorphism: Objects act differently under different conditions
+        2. Polymorphism: Objects of different classes treated as objects of a common superclass, it enables methods to do different things based on the object that they are acting upon
             - There are 2 types of polymorphism
                 1. Static polymorphism(Overloading)
                 2. Dynamic polymorphism(Overriding)
         
-        3. Inheritance: Parent Child relationship
-            - All the methods are declared with the empty body and are public and abstract by default
-            - All the fields public, static and final by default
-            - Interface is used for full abstraction
-            - A class implements interface and implements all abstract methods
-            
-        4. Encapsulation: Hiding the data
+        3. Inheritance: Where a class(child) inherits properties and behaviours from another class(parent)
+            - It's implemented using the extends
+            - Inheritance establishes an "IS-A" relationship between classes
+
+        4. Encapsulation: Is bundling of data and methods inside a single unit or class
+            - To hide the internal state of an object and only allow access through public methods
+            - Use private access modifier for fields to restrict direct access, and public methods to manipulate or access the fields
+            - Getters and setters are typical encapsulation techniques used to control access to object fields
     
     23 . What is a class and an object?
-    - A class is a blueprint of an object
-    - An object is an instance of a class
+    - A class is a blueprint of an object, it defines the attributes and behaviours that objects of that type will have
+    - An object is an instance of a class with its own unique set of attributes and behaviours
     
     24 . Is-A relationship and Has-A relationship?
-    - Whenever one class inherits another class it is called an Is-A relationship(extend)
+    - Whenever one class inherits another class it is called an Is-A relationship(extends)
     - Whenever an instance of one class has a reference to an instance of another class or same class it is known as Has-A relationship
     
     25 . What is method overriding and overloading?
-    - Overloading is same method name with different signatures
+    - Overloading is same method name with different signatures, return types can be same or different
     - Overriding is same method name with same signature, need to have parent child relationship and any method in parent class can be overridden in child class
     
     26 . Static(Compile) vs Dynamic(Runtime) Polymorphism?
-    - Static Polymorphism is implemented by Method Overloading
-    - Dynamic Polymorphism is implemented by Method Overriding
+    - Static Polymorphism is implemented by Method Overloading resolved at compile time
+    - Dynamic Polymorphism is implemented by Method Overriding resolved at runtime
     
     27 . What is an Abstract Class
-    - Abstract class is a Partially defined Parent class
-    - We cannot create constructors for Abstract classes
+    - Abstract class is a class that cannot be instantiated on its own and typically contains abstract methods
+    - It serves as a blueprint for other classes to inherit from and implement its abstract methods
     
     28 . What is an Interface?
-    - Interface is a contract
+    - Interface is a reference type that defines a set of abstract methods.
+    - Interfaces allows for abstraction, enabling the decoupling of implementation from the behaviour
+    - Java supports implementing from multiple interfaces
     - We cant write logic in interface
     - All the methods are public in an interface
     - Multiple Inheritance helps to add new methods without affecting the old interfaces
+    - Can have default method implementations
     
-    29 . what are static blocks and static initializers in Java?
+    29 . What are static blocks and static initializers in Java?
     - Static blocks or static initializers are used to initialize static fields in java.
     - Static blocks gets executed exactly once when the class is loaded 
     - Static blocks are executed even before the constructors are executed.
@@ -200,7 +207,7 @@
         1. Method Overloading occurs with in the same class
         2. Since it involves with only one class inheritance is not involved
         3. In overloading return type need not be the same
-        4. Parameters must be different when we do overloading
+        4. Parameters must be different
         5. In overloading one method can’t hide the another
     - Overriding
         1. Method Overriding occurs between two classes superclass and subclass
@@ -217,12 +224,13 @@
     33 . Difference between this() and super() in java ?
     - this() is used to access one constructor from another with in the same class while super() is used to access superclass constructor. Either this() or super() exists it must be the first statement in the constructor.
     
-    34 . Explain about instanceof operator in java?
-    - \<reference expression> instanceof \<destination type>: will return true if reference is an instance of destination type
-    - There will be a compile time check, so that if its not a subtype then compile time error will be shown
+    34 . Explain about instanceOf operator in java?
+    - \<reference expression> instanceOf \<destination type>: will return true if reference is an instance of destination type
+    - There will be a compile time check, so that if it's not a subtype then compile time error will be shown
     
     35 . Can we define package statement after import statement in java?
-    - We can’t define package statement after import statement in java. package statement must be the first statement in source file. We can have comments before the package statement
+    - We can’t define package statement after import statement in java. package statement must be the first statement in source file.
+    - We can have comments before the package statement
     
     36 . What are identifiers in java?
     - Identifiers are names in java
@@ -232,8 +240,10 @@
     - From second letter we can have numbers
     - We cant use reserved words for identifiers
     
-    37 . What access modifiers can be used for class ?
-    - public and default: Can access in same class, same package subclass, same package non subclass, different package subclass, different package non subclass
+    37 . What access modifiers can be used for class?
+    - public: Can access from anywhere
+    - default: Accessible only within the same package
+    - final: Prevents the class from being subclassed
     
     38 . Explain what access modifiers can be used for methods?
     - All access modifiers
@@ -245,36 +255,44 @@
     39 . What is an error in Java?
     - Error is the subclass of Throwable class in java
     - Exceptions which cannot be recovered are called as errors in java
+    - They cannot be handled by the application code, and they are not meant to be caught or handled using exception handling mechanisms like try-catch blocks
+    - They are caused by problems outside the control of the application, such as system failures or resource exhaustion
+    - ex: OutOfMemoryError, StackOverflowError
     
     40 . Can we have try block without catch block?
-    - Each try block requires atleast one catch block or finally block
+    - Each try block requires at-least one catch block or finally block
     
     41 . What is checked and unchecked Exception in Java?
     - Checked Exception(Compile time exception)
         1. All the subclasses of Throwable except RuntimeException and its subclasses are checked Exception
         2. Checked Exception should be thrown with keyword throws or provided try catch block else program would not compile
         3. Examples
-            - IOException
-            - SQIException
-            - FileNotFoundException
-            - ClassNotFoundException
+            - FileNotFoundException: Occurs when a file specified cannot be found by a FileInputStream or a RandomAccessFile
+            - IOException: A broad exception indicating an I/O problem, such as the failure of reading from or writing to a file
+            - SQLException: Indicates a problem accessing a database through JDBC
+            - ClassNotFoundException: Occurs when the specified class is not found by the ClassLoader
             - InvocationTargetException
     - Unchecked Exception
         1. All subclasses of RuntimeException are called unchecked Exception
         2. Program compiles even if we do not catch the exception or throws the exception
         3. Examples
-            - ArithmeticException
-            - IndexOutOfBoundsException
-            - NullPointerException
-            - NumberFormatException
+            - ArithmeticException: Performing arithmetic operations that result in an error, like dividing by zero
+            - IndexOutOfBoundsException: Thrown when attempting to access an array element at an index that is outside the bounds of the array
+            - NullPointerException: Occurs when you try to access or manipulate an object reference that has a null value
+            - NumberFormatException: Arises when attempting to convert a string to a numeric type, but the string does not contain a valid numeric value
             - UnsupportedOperationException
     
     42 . Explain the importance of finally over return statement?
-    - 'finally' block is more important than return statement when both are present in a program. For example if there is any return statement present inside try or catch block , and finally block is also present first finally statement will be executed and then return statement will be considered
+    - 'finally' block is more important than return statement when both are present in a program
+    - For resource cleanup
+    - Guaranteed execution
+    - Centralized cleanup code in one place
     - 'finally' will not work in JVM shutdowns
     
     43 . Explain when ClassNotFoundException will be raised ?
-    - When JVM tries to load a class by its string name, and couldn’t able to find the class classNotFoundException will be thrown
+    -  Occurs when the JVM tries to load a class dynamically at runtime using Class.forName() or ClassLoader.loadClass(), but the specified class cannot be found in the classpath
+    - This can occur due to a missing jar or classpath issue
+    - This is a checked exception which occurs at runtime
        
     44 . Explain when NoClassDefFoundError will be raised ?
     - JVM tries to load the class but no definition for that class is found. The class may exist at compile time but unable to find at runtime
@@ -286,24 +304,26 @@
         2. It is responsible for executing the main method of the class specified when launching the program
            
     46 . Explain the life cycle of thread?
-    - New: When the instance of thread is created it will be in New state
-    - Runnable: When the start method is invoked or after coming back from blocked/sleeping/waiting state
-    - Running: If thread scheduler allocates cpu time, then the thread will be in running state
-    - Waiting/Blocked/Sleeping: The thread waits to acquire lock of an object, waits for another thread to complete
-    - Dead: A thread is in dead state when thread’s run method execution is complete
+    - New: Threads are created either by extending the Thread class or implementing the Runnable interface
+    - Runnable: When the start method is invoked but has not scheduled yet
+    - Running: Thread scheduler allocates cpu time, then the thread will be in running state
+    - Waiting/Blocked: A thread might transition to a blocked or waiting state due to synchronization
+    - Dead: A thread is in dead state when thread’s run method execution is complete and it cannot be restarted
     
     47 . In how many ways we can do synchronization in java?
     - Synchronized methods
     - Synchronized blocks
     
     48 . When do we use synchronized methods in java?
-    - If multiple threads tries to access a method where method can manipulate the state of object , in such scenario we can declare a method as synchronized
+    - Use synchronized methods in Java when you need to ensure thread safety by allowing only one thread to access the method at a time
+    - Synchronized methods are used to prevent concurrent access to critical sections of code, ensuring data consistency in multithreaded environments
     
     49 . Can we use synchronized block for primitives?
-    - Synchronized blocks are applicable only for objects if we try to use synchronized blocks for primitives we get compile time error
+    - Synchronized blocks are applicable only for objects
     
     50 . What are daemon threads in java?
-    - Daemon threads are threads which run in background. These are service threads and works for the benefit of other threads. Garbage collector is one of the good example for daemon threads
+    - Daemon threads are threads which run in background. These are service threads and works for the benefit of other threads. 
+    - Garbage collector is one of the good example for daemon threads
     
     51 . What are nested classes in java?
     - Class declared with in another class is defined as nested class
@@ -311,12 +331,12 @@
         2. Non-static nested class
     
     52 . What are inner classes or non-static nested classes in java?
-    - Nested classes without any static keyword declaration in class definition are defined as non-static nested classes. Generally non static nested classes are referred as inner classes
+    - Nested classes without any static keyword declaration in class definition are defined as non-static nested classes. Generally non-static nested classes are referred as inner classes
     - There are 4 types of Inner classes
-        1. Local Inner Class
-        2. Member Inner Class
-        3. Static Nested Inner Class
-        4. Anonymous Inner Class
+        1. Local Inner Class: A class defined within a method of another class. It can access all members of the enclosing class and local variables of the enclosing method
+        2. Member Inner Class: A class defined at the member level of another class. It has access to all members of the enclosing class, including private members
+        3. Static Nested Inner Class: A static nested class defined within another class. It cannot access non-static members of the outer class directly
+        4. Anonymous Inner Class: A class defined without a name. It's typically used for instantiating interfaces or extending classes
     
     53 . Will the compiler creates a default constructor if I have a parameterized constructor in the class?
     - No compiler won’t create default constructor if there is parameterized constructor in the class. 
@@ -326,20 +346,21 @@
     - No. Instance variables can’t be accessed in static methods. When we try to access instance variable in static method we get compilation error
    
     55 . How many times finalize method will be invoked ? who invokes finalize() method in java?
-    - Finalize () method will be called only once on object. Before the object gets garbage collected garbage collector will call finalize() method to free the resources. 
     - Finalize() method will be called only when object is eligible for garbage collection
    
     56 . Explain about transient variables in java?
     - To save the state of an object to persistent state we use serialization. If we want a field or variable in the object not to be saved, then we declare that variable or field as transient
    
     57 . Can we define static methods inside interface?
-    -  Only instance methods are permitted in interfaces.only public and abstract modifiers are permitted for interface methods
+    -  Yes we can define static methods in interfaces but cannot override it
     
     58 . Define interface in java?
     -  Interface is collection of abstract methods and constants. An interface is also defined as pure or 100 percent abstract class.Interfaces are implicitly abstract whether we define abstract access modifier or not.
    
     59 . Explain restrictions on using enum?
-    - Enums cannot extend any other class or enum
+    - Enums cannot extend any other class or enum(immutable)
+    - Enums ensure a single instance of each enum constant within a JVM
+    - Enums provide type safety, ensuring that only valid enum constants can be assigned
     - We cannot instantiate an enum
    
     60 . What is collection ?
@@ -361,8 +382,12 @@
     - Hashtable is slower compared to HashMap
     - HashMap introduced starting from collection framework but Hashtable was there even before collection framework
    
-    63 . Explain about fail fast iterators in java
-    - When iterator iterates over collection, collection should not be modified except by that iterator
+    63 . Explain about fail fast and fail-safe iterators in java?
+    - Fail fast
+      - Immediately throw a ConcurrentModificationException if the underlying collection is modified structurally while iterating
+    - Fail safe
+      - Fail-safe iterators work on the cloned copy of the underlying collection, ensuring that modifications to the collection don't affect ongoing iterations
+      - These iterators do not throw exceptions if the collection is modified during iteration
    
     64 . What is serialization in java?
     - Serialization is the process of converting an object in to bytes, so that it can be transmitted over the network,or stored in a flat file and can be recreated later. 
@@ -388,8 +413,9 @@
       - java.util package
       
     67 . What is Serial Version UID?
-    - To remember loaded serialized class and serialized object are compatible.
+    - It's used to ensure compatibility between serialized objects when the class definition changes
     - If serialVersionUID is not provided in a Serializable class, the JVM will generate one automatically
+    - It's crucial for deserialization to determine if a serialized object can be successfully reconstructed
 
     68 . What are functional interfaces in Java?
     - An interface that contains one abstract method.
@@ -404,22 +430,32 @@
       - Error(Non recoverable)
 
     70 . What is CountDownLatch?
-    - Can cause a thread to block until other threads have completed a given task
+    - Java synchronization utility used to allow one or more threads to wait until a set of threads completed
+    - It's initialized with a count, and each thread that needs to wait calls await() method
+    - As operations complete, the count is decremented using the countDown() method. When the count reaches zero, waiting threads are released
 
     71 . What is CyclicBarrier?
     - Allows fixed number of threads that must wait for each other to reach a common point before continuing execution
   
     72 . What are the types of inheritance in Java?
     - Single level: Only one class is derived from the parent class
-    - Multi level: One class inherits the features from a parent class and the newly created sub-class becomes the base class for another new class 
+    - Multi level: One class inherits the features from a parent class and the newly created subclass becomes the base class for another new class 
     - Hierarchical: Many subclasses inherit from one single class is known as Hierarchical Inheritance
     - Multiple: Subclass can inherit features from more than one parent class
     - Hybrid: Combination of more than two types of inheritance
 
     73 . What is the difference between permgen and metaspace?
-    - Permgen is a special heap space that keeps track of loaded class metadata and JVM stores all the static content in this memory section
-    - It was removed completely in JDK 8
-    - Metaspace is the new memory space and this native memory region grows automatically by default
+    - Permgen
+      - Used prior to java 8
+      - Stores class metadata, static variables
+      - Has a fixed size which can lead to OutOfMemory errors if exceeded
+      - Manual tuning needed to prevent these errors
+    - Metaspace
+      - Introduced in java 8
+      - Stores metadata and reflective data
+      - Dynamically resizable memory area
+      - Can grow or shrink based on application demand
+      - Automatically managed by JVM
 
     74 . Can you start a thread twice in java?
     - No, it will give IllegalThreadStateException
@@ -480,8 +516,8 @@
     - Spring
       - Widely used Java EE framework for building web applications
       - Primary feature is Dependency Injection
-      - Developer writes lot of boilerplate code to do the minimal task
-      - To test the project we need to explicitly setup the server
+      - Developer writes a lot of boilerplate code to do the minimal task
+      - To test the project we need to explicitly set up the server
       - Does not provide support for in memory database
     - Spring Boot
       - Widely used to develop REST APIS
@@ -490,26 +526,26 @@
       - Offers embedded servers like jetty or tomcat
       - Supports in memory database such as H2
 
-    12 . What is autowiring?
+    12 . What is auto wiring?
     - The process of injecting dependencies into a spring bean automatically
 
     13 . What is the difference between war and jar?
     - Jar files are used to packaging and distributing standalone java applications while War files are used to packaging and distributing web applications
     
-- Springboot
+- Spring boot
 
     1 . How SpringBoot works internally?
-    - Entry point of springboot application is a class which contains @SpringBootApplication annotation and has the main method
+    - Entry point of spring boot application is a class which contains @SpringBootApplication annotation and has the main method
     - SpringBoot scan all the components included in the project by using @ComponentScan annotation
-    - Using @EnableAutoConfiguration annotation the springboot application configures the springboot application automatically
+    - Using @EnableAutoConfiguration annotation the spring boot application configures the spring boot application automatically
     
     2 . What are Spring boot starters?
-    - Springboot starter comprises of templates which provide a Rapid Application Development, spring boot starter contains a combination of all the relevant transitive dependencies
-    - Springboot starter solves the auto dependency resolution in a spring boot application
-    - Springboot resolves transitive dependencies internally
+    - Spring boot starter comprises templates which provide a Rapid Application Development, spring boot starter contains a combination of all the relevant transitive dependencies
+    - Spring boot starter solves the auto dependency resolution in a spring boot application
+    - Spring boot resolves transitive dependencies internally
     
     3 . What are the major starter dependencies of spring boot application?
-    - spring-boot-starter-parent: Provides default configurations for our application and a complete dependency tree to quickly build our springboot project
+    - spring-boot-starter-parent: Provides default configurations for our application and a complete dependency tree to quickly build our spring boot project
     - spring-boot-starter-web: Uses Spring MVC, REST, tomcat as a default embedded server, and pulls in all dependencies related to web development
     - spring-boot-starter-security: Automatically secures all HTTP endpoints with basic authentication
     - spring-boot-starter-test: Primary dependency required for tests
@@ -553,7 +589,7 @@
     - Flexibility: 
     - Open Source: Easy to setup and configure
     
-    11 . What are the differences between Spring and Springboot?
+    11 . What are the differences between Spring and Spring boot?
     - Spring
         - Spring is a web application framework based on java
         - Provides tools and libraries to create customized web application
@@ -561,8 +597,8 @@
         - A module of Spring
         - Used to create a Spring application project which can just run/execute
     
-    12 . Advantages of Springboot?
-    - Provides auto configuration to load a set of default configuration for a quick start of the application
+    12 . Advantages of Spring boot?
+    - Provides autoconfiguration to load a set of default configuration for a quick start of the application
     - Comes with embedded tomcat to avoid the usage of WAR files
     - Provides CLI tools to develop and test applications
     - Provides Spring boot starters to ensure dependency management
