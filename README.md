@@ -468,30 +468,41 @@
 
 - Spring
     
-    1 . Explain Dependency Inversion and Inversion Of Control concepts in Spring?
+    1 . Explain Inversion Of Control and Dependency Inversion concepts in Spring?
     - Inversion Of Control(IoC):
         1. Is a design principle where the control of object(beans) creation and management is shifted from the application itself to an external container or framework(Spring IoC container is responsible)
         2. The container manages the lifecycle of these beans and handles their dependencies, ensuring that the right dependencies are injected into the right places.
         3. Overall architecture becomes more flexible and maintainable
-    - Dependency Injection(DI):
-        1. Dependency Injection is a specific implementation of the IoC principle
-        2. It is a technique used to inject the dependencies of a class into the class itself
+        4. This allows for greater flexibility, easier testing and decoupling of components 
+    - Dependency Inversion(DI):
+        1. High-level modules should not depend on low-level modules. Both should depend on abstractions
+        2. This is achieved through interfaces or abstract classes, allowing for loose coupling between components
         
     2 . What are the common design patterns used in Spring applications?
     - Singleton pattern: There is only one instance of a particular bean per Spring container. This ensures that beans are shared across the application reducing resource usage
+    - DI pattern: Spring IoC container performs DI by injecting dependencies into classes either through constructor injection, setter injection or method injection using annotations
     - Prototype pattern: New instance per request
     - Factory pattern: Spring IoC container acts as a factory that creates and manages bean instances based on their configurations
-    - DI pattern: Spring IoC container performs DI by injecting dependencies into classes either through constructor injection, setter injection or method injection using annotations
     - Template Method pattern: Template classes provide a consistent approach to perform repetitive tasks such as database access(JdbcTemplate), transaction management(TransactionTemplate) and email sending(JavaMailSender)
     
     3 . Explain the difference between constructor and setter injection?
-    - In constructor injection, the required dependencies are passed to the class via its constructor at the time of object creation, the class is responsible for initializing its instance variables with the provided dependencies.
-    - In setter injection, the dependencies are provided through setter methods of the class. The class exposes setter methods for each dependency it requires, and the Spring container uses these methods to inject the required dependencies after creating the object.
-    - Use constructor injection for mandatory dependencies, immutability, safety and readability.
-    - Use setter injection for optional dependencies, flexibility to change dependencies, circular dependencies.
-    
+    - Constructor injection
+      - Dependencies are injected via constructor parameters
+      - Provides immutable objects, promoting thread safety
+      - Requires all dependencies to be provided during object creation
+      - Encourages better design by enforcing mandatory dependencies upfront
+    - Setter injection
+      - Dependencies are injected via setter methods
+      - Allows for flexibility by allowing dependencies to be set after object creation
+      - Facilitates optional dependencies and circular dependencies
+
     4 . What is a Spring Bean?
-    - Any java object that is managed by Spring is called Spring Bean
+    - An object that is instantiated, assembled, and managed by the Spring IoC container is a Spring Bean
+    - IOC manages the lifecycle of the Spring Beans
+    - Dependency Injection injects dependencies into Beans
+    - Bean scopes defines the lifecycle and visibility of a spring bean(Singleton, Prototype, Request, Session)
+    - Component scanning is an automatic detection and instantiation of Spring beans based on classpath scanning and predefined rules
+    - Methods like @PostConstruct and @PreDestroy to execute initialization and destruction logic respectively
     
     5 . @Value can help loading the values from?
     - Environment properties, VM arguments, properties file
@@ -501,38 +512,59 @@
     - Another properties file from another project
 
     7 . How the singleton beans are initialized?
-    - Eagerly initialized
+    - Singleton beans in Spring are initialized when the Spring container starts up
+    - Spring container creates and manages a single instance of a singleton bean throughout the application lifecycle
+    - Singleton beans are initialized lazily by default, meaning they are created upon first request
+    - Initialization of singleton beans involves instantiation, property injection, and any required initialization methods
+    - Once initialized, singleton beans are cached for subsequent requests, improving performance by avoiding repeated creation
     
     8 . Is @Bean a stereotype annotation?
     - No, If its stereotype it has a specific role
+    - @Component, @Repository, @Service, and @Controller @value are stereotype annotations
     
     9 . Can you define private Beans using @Bean annotation inside a Configuration file that are annotated with @Configuration?
     - No
     
     10 . What are the places where @Profile annotation can be used?
-    - @Bean, @Component, @Configuration, @Repository
+    - Use @Profile on @Component, @Service, @Repository, or @Configuration to specify when a bean should be created based on the active profiles
+    - Include or exclude components based on active profiles by annotating your configuration class with @ComponentScan and providing profile names
+    - Use along with @ConditionalOnBean, @ConditionalOnClass to conditionally create beans or configure components based on profiles
 
     11 . Differences between Spring and Spring Boot?
     - Spring
       - Widely used Java EE framework for building web applications
-      - Primary feature is Dependency Injection
-      - Developer writes a lot of boilerplate code to do the minimal task
-      - To test the project we need to explicitly set up the server
-      - Does not provide support for in memory database
+      - Requires manual configuration for various components like data sources, security and logging
+      - Requires more configuration and setup time
+      - Provides a wide range of modules for different functionalities like spring MVC, spring data and spring security
     - Spring Boot
-      - Widely used to develop REST APIS
-      - Primary feature is Autoconfiguration
-      - Reduced boilerplate code
-      - Offers embedded servers like jetty or tomcat
-      - Supports in memory database such as H2
+      - Widely used to developing microservices and standalone applications
+      - Provides autoconfiguration for most common application needs
+      - Rapid Application Development reducing boilerplate code
+      - Simplifies application development by bundling necessary dependencies and providing starter modules for common tasks
 
     12 . What is auto wiring?
-    - The process of injecting dependencies into a spring bean automatically
+    - The process of injecting dependencies into a spring bean without explicitly configuring them
 
     13 . What is the difference between war and jar?
-    - Jar files are used to packaging and distributing standalone java applications while War files are used to packaging and distributing web applications
+    - Jar files are used to packaging and distributing standalone java applications while War files are used to packaging and distributing web application to a servlet container like tomcat
+
+    14 . Explain Spring scopes?
+    - Singleton: Creates a single instance of a bean per Spring IoC container
+    - Prototype: Creates a new instance of a bean every time it's requested
+    - Session: Creates a new instance of a bean for each HTTP session
+    - Request: Creates a new instance of a bean for each HTTP request
     
 - Spring boot
+
+    0 . Why Spring Boot?
+    - Rapid Application Development
+    - Autoconfiguration reducing the need for manual setup and configuration
+    - Embedded servers like tomcat or jetty
+    - Native Cloud support using spring cloud
+    - Rich ecosystem with extensive community support, libraries and plugins
+    - Production ready endpoints for checking health, metrics and monitoring
+    - Simplified unit and integration testing
+    - Open source and based on Java
 
     1 . How SpringBoot works internally?
     - Entry point of spring boot application is a class which contains @SpringBootApplication annotation and has the main method
