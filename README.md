@@ -567,23 +567,29 @@
     - Open source and based on Java
 
     1 . How SpringBoot works internally?
-    - Entry point of spring boot application is a class which contains @SpringBootApplication annotation and has the main method
-    - SpringBoot scan all the components included in the project by using @ComponentScan annotation
-    - Using @EnableAutoConfiguration annotation the spring boot application configures the spring boot application automatically
+    - It leverages Spring's core features such as dependency injection and inversion of control (IoC) to manage application components
+    - SpringBoot automatically configures your application based on its dependencies and the environment, reducing the need for manual configuration
+    - It uses an embedded server like Tomcat, Jetty, or Undertow to simplify deployment. This means you can run your SpringBoot application as a standalone Java application
+    - SpringBoot provides starter dependencies that bundle commonly used libraries, making it easier to set up and manage dependencies in your project
+    - SpringBoot Actuator provides built-in endpoints to monitor and manage your application at runtime, offering insights into application health, metrics, and more
+    - It offers a Command Line Interface (CLI) for rapid prototyping and development of SpringBoot applications, allowing you to quickly create, run, and test applications
+    - Dev tools helps in rapid development by enabling features like automatic application restart, live reload, and remote debugging
+    - SpringBoot supports various configuration formats like properties files, YAML files, environment variables, and command-line arguments
     
     2 . What are Spring boot starters?
     - Spring boot starter comprises templates which provide a Rapid Application Development, spring boot starter contains a combination of all the relevant transitive dependencies
     - Spring boot starter solves the auto dependency resolution in a spring boot application
+    - They provide a quick and easy way to include common dependencies for specific functionalities, such as web development, data access, security, and more
     - Spring boot resolves transitive dependencies internally
     
     3 . What are the major starter dependencies of spring boot application?
-    - spring-boot-starter-parent: Provides default configurations for our application and a complete dependency tree to quickly build our spring boot project
-    - spring-boot-starter-web: Uses Spring MVC, REST, tomcat as a default embedded server, and pulls in all dependencies related to web development
-    - spring-boot-starter-security: Automatically secures all HTTP endpoints with basic authentication
-    - spring-boot-starter-test: Primary dependency required for tests
-    - spring-boot-starter-actuator: Helps monitor application via HTTP endpoints, several endpoints are available out of the box
+    - spring-boot-starter-parent: Provides default configurations for our application, dependency management and plugin management
+    - spring-boot-starter-web: Essential for developing web applications, providing embedded Tomcat server and Spring MVC
+    - spring-boot-starter-security: Offers authentication, authorization, and other security features
+    - spring-boot-starter-test: Facilitates testing with JUnit, Mockito, and other testing libraries
+    - spring-boot-starter-actuator: Enables monitoring and managing the application through endpoints
     - spring-boot-starter-jdbc: Provides libraries for connecting the application with JDBC
-    - spring-boot-starter-data-jpa: Provides access to different kinds of persistence stores
+    - spring-boot-starter-data-jpa: Simplifies working with databases using Java Persistence API
     - spring-boot-starter-data-aop: Provides Aspect-Oriented Programming with cross-cutting concerns
     
     4 . Can you disable particular auto-configuration in spring boot?
@@ -591,13 +597,13 @@
     - @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) or @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 
     5 . Explain below annotations?
-    - @RestController: Class level annotation, so that spring container will consider as RestEndpoint
-    - @RequestMapping(value="/provider"): Define the REST url
-    - @PathVariable: To extract variable value
-    - @RequestParams: To extract query params 
-    - @ResponseEntity: To convert domain object into the response format 
-    - @GetMapping: To make endpoint compatible for GET requests 
-    - @ResponseBody: To generate the response message 
+    - @RestController: Marks a class as a controller where methods return data directly instead of relying on a view for presentation. Used in REST ful web services
+    - @RequestMapping(value="/provider"): Maps HTTP requests to MVC or REST and specifies URL pattern that the controller should listen
+    - @PathVariable: Extracts values from the URI path
+    - @RequestParams: To extract query params from the URL
+    - @ResponseEntity: Represents the entire HTTP response, including headers and body. It allows you to control the response status code, headers, and body content
+    - @GetMapping: It maps HTTP GET requests onto specific handler methods in a controller
+    - @ResponseBody: Indicates that the return value of a method should be bound to the web response body
     
     6 . Can we disable the default web server in the Spring Boot application?
     - Add below config to application.properties
@@ -607,7 +613,8 @@
     - SpringBoot is a spring module for RAD(Rapid Application Development) with extra support of autoconfiguration, embedded application servers, auto dependency resolution, management endpoints, spring boot CLI
     
     8 . What is the difference between @Controller and @RestController annotations?
-    - @Controller maps the model object to a view or template and makes it human-readable but @RestController simply returns the object and data as JSON or XML
+    - @Controller: It is used to mark classes as Spring MVC controllers. These classes handle web requests and usually return views
+    - @RestController: It is a specialization of the @Controller annotation. It's used to create REST ful web services. It automatically converts Java objects into JSON or XML responses
     
     9 . What is the difference between @RequestMapping and @GetMapping annotations?
     - @RequestMapping can be used with GET,POST,PUT and many other request methods using the method attribute on the annotation
@@ -619,16 +626,12 @@
     - Connectivity: Can connect to any database
     - Cloud Native: Ready for cloud out of the box
     - Flexibility: 
-    - Open Source: Easy to setup and configure
+    - Open Source: Easy to set up and configure
     
-    11 . What are the differences between Spring and Spring boot?
-    - Spring
-        - Spring is a web application framework based on java
-        - Provides tools and libraries to create customized web application
-    - SpringBoot
-        - A module of Spring
-        - Used to create a Spring application project which can just run/execute
-    
+    11 . What is Singleton across per container and per jvm?
+    - 1 singleton bean per Spring container
+    - Multiple beans per JVM if we deploy multiple instances of the same application in the same server 
+
     12 . Advantages of Spring boot?
     - Provides autoconfiguration to load a set of default configuration for a quick start of the application
     - Comes with embedded tomcat to avoid the usage of WAR files
@@ -643,58 +646,88 @@
     - All available starters come under the org.springframework.boot group
 
     14 . Explain Spring Actuator and its advantages?
-    - Provides a very easy way to access production ready rest points and fetch all kinds of information from the web
+    - Spring Actuator is a feature in the Spring Boot framework that provides production-ready features to help monitor and manage your application
+    - Actuator supports below endpoints
+      - '/actuator/health'
+      - '/actuator/metrics'
+      - '/actuator/env'
     
     15 . What is spring boot dependency management?
-    - Is used to manage dependencies and configuration automatically without you specifying the version for any of that dependencies
+    - Spring Boot dependency management is a feature that simplifies the management of dependencies in a Spring Boot application
+    - Spring Boot automatically manages and resolves the versions based on compatibility requirements
+    - This reduces the risk of version conflicts and simplifies the configuration process
     
     16 . What is the need for spring boot DevTools?
     - Set of tools that aims to make the process of developing an application easier
     - This module is automatically disabled in production
+    - List of functionalities provided
+      - Automatic restart
+      - Live reload
+      - Remote debugging
+      - Dependency management
     
     17 . What is Spring initializer?
     - Is a web tool provided by Spring. With this tool you can create Spring boot projects just by providing project details
     
     18 . What are the differences between JPA and Hibernate?
-    - JPA is a Data Access Abstraction used to reduce the amount of boilerplate code
-    - Hibernate is an implementation of Java Persistence API and offers loose coupling
+    - JPA
+      - Is a specification for object relational mapping in Java applications
+      - Is a set of interfaces and annotations, allowing for multiple implementations
+      - Can switch to another JPA implementation easily
+    - Hibernate
+      - Is a specific implementation of JPA
+      - Require more code changes if migrating
+      - Offers more features and performance tuning options compared to JPA
     
     19 . What do you understand by Spring Data?
-    - Make it easy for the developers to use relational and non-relational databases, cloud based data services and other data access technologies
+    - Aims to simplify database access in java applications
+    - It provides a consistent API for working with various data stores, including relational, NoSQL and cloud-based data services
     
     20 . What is the best way to expose custom application configuration with SpringBoot?
-    - Define a configuration component using the @ConfigurationProperties
+    - Using application.properties or application.yml
+    - @ConfigurationProperties to bind custom properties directly to Java objects
+    - Environmental variables
+    - Spring Cloud Config
+    - Profiles
     
     21 . What is the difference between @Autowired and @Inject?
     - @Inject is a standard annotation for dependency injection while @Autowired is a specific annotation in Spring for dependency injection
     - @Inject is from pure Java EE, while @Autowired is from Spring framework
+    - We can achieve dependency injection in pure java using constructor injection, setter injection or method injection
     
     22 . What is the difference between @Component and @Bean?
+    - @Component is used to auto-detect and autoconfigure beans using classpath scanning, while @Bean is used to explicitly declare a single bean instance manually
     - @Bean is method level but @Component is class level
     - The @Component annotation doesn't need to be used with the @Configuration annotation, whereas the @Bean needs to be within a class annotated with @Configuration
     
     23 . How many types of IOC containers are there in Spring?
-    - BeanFactory: Is a factory class that contains a collection of beans
-    - ApplicationContext: ApplicationContext interface is built on top of the BeanFactory and it provides additional functionality like Annotation support, Reactive programming
+    - BeanFactory: Serves as the core container for holding bean definitions, instantiating beans, and managing their lifecycle
+    - ApplicationContext: ApplicationContext interface is built on top of the BeanFactory, and it provides additional functionality like Annotation support, Reactive programming
     
     24 . What is the use of @Qualifier annotation in Spring framework?
     - When we create more than one bean of the same type and want to wire only one of them with a property we can use the @Qualifier annotation
+    - It helps resolve the ambiguity by specifying exactly which bean should be autowired into a particular dependency
     
     25 . What is @Primary annotation in Spring?
-    - Indicates that a bean should be given preference when multiple candidates are qualified to autowired a single valued dependency
-    - In case of Auto wiring process, if no Qualifier is used, @Primary is given highest priority
+    - Indicates the primary bean to be used when multiple beans of the same type are present
+    - Used to resolve ambiguity when auto-wiring beans by type
+    - Spring will prioritize the bean annotated with @Qualifier over the one annotated with @Primary
     
     26 . What are the lifecycle methods in Spring?
     - init and destroy method which are executed by spring container
     
     27 . What are different ways of writing lifecycle methods in Spring?
-    - Using XML
-    - Using spring interfaces: implements InitializingBean, DisposableBean
-    - Using Annotations: @PostConstruct, @PreDestroy
+    - XML Configuration
+    - Implementing spring interfaces 
+      - InitializingBean 
+      - DisposableBean
+    - Annotations: 
+      - @PostConstruct: The method annotated with @PostConstruct is invoked after the bean has been constructed and its dependencies have been injected
+      - @PreDestroy: The method annotated with @PreDestroy is invoked before the bean is destroyed by the Spring container, typically during shutdown
     
     28 . What do you understand by validations in Spring MVC?
     - It is used to restrict the input provided by the user
-    - Spring validations: @NotNull, @Pattern, @Email, @Past, @NotBlank
+    - Spring validations: @NotNull, @Pattern, @Email, @Size, @NotBlank
     - @Valid must be used at Method Parameter
 
     29 . Which annotations are used to define Global Exception Handler class?
@@ -702,16 +735,20 @@
     - @ExceptionHandler
     
     30 . What is the main difference between Spring core and Spring MVC?
-    - Spring MVC is built using Spring core
-    - Spring core is an IOC container that injects dependencies into various bean classes
-    - Spring MVC leverages the power of that IOC container to implement web based applications
-    
+    - Spring Core provides the fundamental functionalities of the Spring Framework, such as dependency injection and inversion of control
+    - Spring MVC is a part of the Spring Framework that provides a model-view-controller architecture for building web applications
+
     31 . What is ResponseEntity<T> in Spring REST?
-    - Output of RestController is ResponseEntity. It must be used for method ReturnType
+    - It's a class representing the entire HTTP response including status code, headers, and body
+    - Used to customize HTTP response in Spring REST controllers
+    - Allows specifying status codes, headers, and response body type
     
     32 . What is ORM?
     - ORM stands for Object Relational Mapping
-    - Mainly for database operation and every operation need to be in Object format(save, update, delete, select)
+    - It's a programming technique to map objects from an object-oriented system to relational database tables
+    - ORM helps developers work with databases using the programming language's object-oriented paradigm
+    - It abstracts away the complexities of SQL queries, making database interactions more intuitive
+    - ORM facilitates CRUD operations: Create, Read, Update, Delete, on database records through object manipulation
     
     33 . What is the difference between JPA and Hibernate?
     - JPA is a specification of oracle
@@ -719,16 +756,21 @@
     
     34 . What is the Spring boot Data JPA repository?
     - Mainly there are 3 repositories
-        - CrudRepository
-        - PagingAndSortingRepository
-        - JpaRepository
+        - CrudRepository: Provides CRUD operations (Create, Read, Update, Delete) for the entity
+        - PagingAndSortingRepository: Extends CrudRepository and adds pagination and sorting capabilities
+        - JpaRepository: Extends PagingAndSortingRepository and adds JPA-specific methods like flushing the persistence context and deleting records in a batch
         
     35 . What is the difference between PagingAndSortingRepository and JpaRepository?
-    - JpaRepository works only for relational databases
-    - PagingAndSortingRepository work for both SQL and NoSQL databases
+    - JpaRepository
+      - Extends PagingAndSortingRepository and adds JPA-specific methods
+      - It provides additional functionality like flushing changes to the database, deleting records in bulk
+    - PagingAndSortingRepository
+      - It's a generic interface that extends CrudRepository
+      - Provides methods for paging and sorting results
+      - Doesn't offer specific JPA-related methods
     
     36 . What are the predefined methods given by @Repository interfaces?
-    - save(), delete(), findById(), findAll(), deleteById(), findAll(Sort), findAll(Pageable)
+    - save(), saveAll(), findById(), findAll(), findAll(Sort), findAll(Pageable), count(), delete(), deleteAll(), deleteById()
     
     37 . What is @Query used for?
     - @Query annotation is used to write custom queries
@@ -736,14 +778,13 @@
     
     38 . What is PlatformTransactionManager?
     - PlatformTransactionManager is an interface that extends TransactionManager
-    - It enables @Transactional annotation which does commit in case of success, and rollback in case of exception/failure
+    - It coordinates the beginning, committing, or rolling back of transactions, ensuring data integrity and consistency in database operations
     
     39 . Difference between findById() and getOne()?
-    - If data is not found in findById() method then it will return null, means it return Optional<T> class
-    - If data is not found in getOne() method then it will throw an exception called EntityNotFoundException
+    - If data is not found in findById() will return null, means it return Optional<T> class
+    - If data is not found in getOne() will throw an exception called EntityNotFoundException
     
     40 . What is the usage of Dialect?
-    - Dialect is a class defined in JPA
     - It generates SQLs at runtime based on our operations
     - If we move from one Database to another database we need to update database dialect property in application.properties
     
@@ -761,9 +802,14 @@
     - FULL JOIN: Gets all connected rows from both tables, and if any value missing return as null
    
     44 . What are some essential features of Spring Security?
-    - Supports authentication and authorization in a flexible and comprehensive manner
-    - Java Authentication and Authorization Service is used for authentication purposes
-    - Enables Single Sign On so that users can access multiple applications with just one account(username and password)
+    - Authentication: Provides mechanisms to authenticate users using various methods such as LDAP, JDBC, OAuth, etc
+    - Authorization: Enables fine-grained access control to resources based on user roles and permissions.
+    - Security Filters: Offers a set of filters for handling authentication, authorization, session management, and CSRF protection
+    - Session Management: Supports session fixation protection, concurrent session control, and session timeout handling
+    - Password Encoding: Built-in support for password hashing and salting to securely store user passwords
+    - CSRF Protection: Helps prevent Cross-Site Request Forgery attacks by generating and validating unique tokens
+    - Remember-Me Authentication: Allows users to authenticate with a persistent token, typically stored in a cookie, for automatic login
+    - Method-Level Security: Provides annotations for securing individual methods within Spring components.
     
     45 . What do you mean by Basic Authentication?
     - We send a username and password using the HTTP header to enable us to access the resource
@@ -771,31 +817,37 @@
     - eg: Value = username:password -> Encoded = base64(Value) -> Authorization = Basic <Encoded>
     
     46 . Explain SecurityContext and SecurityContextHolder?
-    - SecurityContext: Holds the data about the currently authenticated user
-    - SecurityContextHolder: Easiest way to get currently authenticated user is via a static call to SecurityContextHolder
+    - SecurityContext: SecurityContext is an interface in Spring Security that holds the details of the currently authenticated user, including their principal (username), authorities, and other security-related information
+    - SecurityContextHolder: SecurityContextHolder is a class in Spring Security that provides access to the SecurityContext
     
     47 . Explain spring security OAuth2?
-    - User/Resource Owner: The end-user
-    - Client: The application requesting an access token
-    - Authorization Server: The server that is used to authenticate the user. It issues access tokens and tracks them throughout their lifetime
-    - Resource Server: The API that provides access to the requested resource. It validates the access tokens and provides authorization
+    - Spring Security OAuth2 is an extension of the Spring Security project that provides support for OAuth 2.0 authentication and authorization
+    - It helps secure Spring-based applications by providing mechanisms for authenticating users and authorizing access to resources using OAuth 2.0
+    - The main components include Authorization Server, Resource Server, Client, and Tokens
+    - Authorization server is responsible for issuing access tokens to clients after successfully authenticating and authorizing users
+    - Resource server hosts resources that are protected by OAuth 2.0 and verifies access tokens to grant or deny access to those resources
+    - The client is an application that requests access to protected resources on behalf of the resource owner
+    - An access token is a credential that represents the user's authorization to access protected resources
+    - It is issued by the Authorization Server after the user successfully authenticates and authorizes the client application
+    - A refresh token is a long-lived credential that is used to obtain a new access token when the current one expires
+    - When an access token expires, the client can use the refresh token to request a new access token without requiring the user to re-authenticate
     
     48 . What is method security and why do we need it?
     - The ROLE of the user is used to determine which user is authorized to access the resource
     - A security measure applied to a method prevents unauthorized users and only allows authentic users
     
     49 . What do you mean by hashing in spring security?
-    - Store encrypted passwords in a database is called hashing
+    - Hashing in Spring Security refers to the process of converting sensitive data, such as passwords, into irreversible scrambled strings using cryptographic algorithms
     
     50 . What is AuthenticationManager in Spring Security?
-    - How authentication will happen
-    - AuthenticationManager contains references to all AuthenticationProviders
-    
+    - AuthenticationManager in Spring Security is responsible for authenticating a user's credentials
+    - It validates the user's identity by checking the provided credentials against the stored credentials in the system
+    - It acts as the central authentication point in the security framework
+
     51 . What do you mean by session management in Spring security?
-    - Session management relates to securing and managing multiple users sessions against their request
-    - To control HTTP sessions, Spring security uses SessionManagementFilter and SessionAuthenticationStrategy
-    
-    
+    - Session management in Spring Security refers to the management of user sessions within a web application
+    - It involves controlling the lifecycle of sessions, handling session creation, destruction, and tracking session attributes
+
 - SOLID Principals
     - Single Responsibility Principal
         - A Class should have one and only one responsibility
