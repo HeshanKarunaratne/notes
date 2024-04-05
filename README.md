@@ -1027,3 +1027,132 @@
       - Delete existing records from a table, can delete single or multiple records, DML syntax
     - Drop
       - Drop existing records as well as the table, DDL syntax 8
+
+- HTTP Status Codes
+    - 1xx: Informational codes: Request received and process is continuing
+      - 100: Continue
+      - 102: Processing
+      
+    - 2xx: Successful codes: Successfully received, understood and accepted
+      - 200: OK
+      - 201: Created
+      - 202: Accepted
+      - 204: No Content
+  
+    - 3xx: Redirection codes: Further actions must be taken in order to complete
+      - 301: Moved permanently
+      - 304: Not modified
+      - 305: Use Proxy
+      - 307: Temporary redirect
+      
+    - 4xx: Client Errors codes: Request contains incorrect syntax or cannot be fulfilled
+      - 400: Bad request
+      - 401: Unauthorized
+      - 402: Payment required
+      - 403: Forbidden
+      - 404: Not found
+      - 405: Method not allowed
+      - 408: Request timeout
+      - 415: Unsupported media type
+      
+    - 5xx: Server Errors codes: Server failed to fulfill the request
+      - 500: Internal server error
+      - 502: Bad gateway
+      - 503: Service unavailable
+      - 504: Gateway timeout
+
+- Kafka
+    1 . What is the role of the offset?
+    - The role is to identify each message in the partition uniquely
+    - In partitions, messages are assigned a unique ID number called the offset
+
+    2 . Can Kafka be used without ZooKeeper?
+    - Any client request cannot be serviced if ZooKeeper is down
+
+    3 . In Kafka, why are replications critical?
+    - To make sure that the messages are not lost in case of application error or machine failure
+
+    4 . What is a partitioning key?
+    - The partitioning key indicates the destination partition of the message within the producer
+    - A hashing based partitioner determines the partition ID when the key is given
+    
+    5 . What is the difference between kafka and rabbitmq?
+    - Kafka
+      - 1 million messages per second
+      - Message retention up to 30 days
+      - Payload size: 1MB limit
+      - Massive data/ high throughput cases
+    - RabbitMQ
+      - 4K-10K messages per second
+      - Message retention acknowledgement based
+      - Payload size: no constraints
+      - Simple cases
+
+    6 . What is a partition of a topic in Kafka Cluster?
+    - Partition is a single piece of Kafka topic
+    - More partitions allow excellent parallelism when reading from the topics
+    - The number of partitions is configured based on per topic
+
+    7 . How can you get precisely one messaging during data production?
+    - To get precisely one messaging from data production, you have to follow two things:
+      - Avoiding duplicates during data production
+      - Avoiding duplicates during data consumption(de-duplication)
+
+    8 . What is Zookeeper in Kafka?
+    - It is a high performance and open source complete coordination service used for distributed applications adapted by Kafka
+
+    9 . Name various components of Kafka?
+    - Producer: Produces messages and can communicate to a specific topic
+    - Consumer: One who consumes the published data and subscribes to different topics
+    - Broker: Act as a channel between consumers and producers
+
+    10 . Why is Kafka so popular?
+    - Kafka builds real-time data pipelines responsible for data processing and transferring between different systems that need to use it
+
+    11 . What is a consumer group?
+    - When more than one consumer consumes a bunch of subscribed topics jointly, it forms a consumer group
+
+    12 . How is a Kafka Server started?
+    - To start a Kafka Server, the Zookeeper has to be powered up by using the following steps:
+        - bin/zookeeper-server-start.sh config/zookeeper.properties
+        - bin/kafka-server-start.sh config/server.properties
+
+    13 . Discuss the architecture of Kafka?
+    - A cluster in Kafka contains multiple brokers as the system is distributed
+    - The topic in the system is divided into multiple partitions
+    - Each broker stores one or multiple partitions so that consumers and producers can retrieve and publish messages simultaneously
+
+    14 . What are the benefits of using Kafka?
+    - Scalable: Data is streamlined over a cluster of machines and partitioned to enable large information
+    - Fast: Kafka has brokers which can serve thousands of clients
+    - Durable: Message is replicated in the cluster to prevent record loss
+    - Distributed: Provides robustness and fault tolerance
+
+    15 . How can the Kafka cluster be rebalanced?
+    - If several nodes in a topic are already equal to the replication factor, adding disks will not help in re-balancing
+    - Kafka-reassign-partitions command is recommended after adding new hosts
+
+    16 . What is a broker in Kafka?
+    - Is used to refer to a server in Kafka cluster
+
+    17 . What is meant by SerDes?
+    - SerDes (Serializer and Deserializer) materializes the data whenever necessary for any Kafka stream when SerDes is provided for all record and record values
+
+    18 . What are the benefits of creating Kafka Cluster?
+    - When we expand the cluster, the Kafka cluster has zero downtime
+    - The cluster manages the replication and persistence of message data
+    - The cluster also offers strong durability because of cluster centric design
+
+    19 . Who is the producer in Kafka?
+    - The producer is a client who publishes and sends the record
+    - The producer sends data to the broker service
+    - The producer applications write data to topics that are ready by consumer applications
+
+    20 . What is fault tolerance?
+    - There is a high probability of one of the nodes failing
+    - Fault tolerance means that the system is protected and available even when nodes in the cluster fail
+
+    21 . What is meant by partition offset?
+    - The offset uniquely identifies a record within a partition
+    - Topics can have multiple partition logs that allow consumers to read in parallel
+    - Consumers can read messages from a specific as well as an offset print of their choice
