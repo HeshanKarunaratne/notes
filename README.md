@@ -926,6 +926,21 @@
     - It involves controlling the lifecycle of sessions, handling session creation, destruction, and tracking session
       attributes
 
+  45 . Can we use REST POST endpoint to handle a REST GET behaviour?
+    - Using a GET request to perform actions like creating, updating, or deleting resources is not considered a good
+      practice because:
+    - Idempotence: GET requests should be idempotent, meaning that making the same request multiple times should have
+      the same effect as making it once. Performing actions like creating or modifying data through a GET request
+      violates this principle.
+    - Caching: GET requests are often cached by browsers and proxy servers, which means that they might be retrieved
+      from cache rather than making a new request to the server. This can lead to unintended side effects if the action
+      is performed multiple times without the server being aware.
+    - Security: GET requests are typically logged by servers and intermediaries, potentially exposing sensitive data or
+      actions in the URL parameters.
+
+  46 . What are the difference between SpringBoot and SpringMVC?
+  - 
+
 - SOLID Principals
     - Single Responsibility Principal
         - A Class should have one and only one responsibility
@@ -1312,12 +1327,431 @@
     - Leader handles all reads and writes and followers replicate them
     - Producer publishes a message to leader and leader appends the message to its offset and increments the offset
     - Kafka cluster is a system that comprised of different brokers, topics and partitions
-    - If the consumer is behind during message processing, it has the option to reset the offset it was reading from and read again
+    - If the consumer is behind during message processing, it has the option to reset the offset it was reading from and
+      read again
     - If you have only a single broker it does not give you the full benefit of replication in kafka
     - We can have infinite number of partitions with infinite offset values
     - To manage and coordinate kafka brokers, maintain metadata, leader election we need Zookeeper
     - Brokers are stateless, hence for maintaining the cluster state we can use zookeeper
     - No kafka server can run without a zookeeper server
-    - We can decide which partition to send the message, but kafka decides the offset 
+    - We can decide which partition to send the message, but kafka decides the offset
     - Only 1 consumer can read from 1 partition for order maintenance
-    - In the event of a leader or a broker failure, kafka ensures quick leader election and data replication from in-sync replicas(ISR)
+    - In the event of a leader or a broker failure, kafka ensures quick leader election and data replication from
+      in-sync replicas(ISR)
+
+- React
+
+  1 . Differentiate between Real DOM and Virtual DOM?
+    - Real DOM
+        - It updates slow
+        - Can directly update HTML
+        - Creates a new DOM if element updates
+        - DOM manipulation is very expensive
+        - Too much of memory wastage
+    - Virtual DOM
+        - It updates faster
+        - Can’t directly update HTML
+        - Updates the JSX if element updates
+        - DOM manipulation is very easy
+        - No memory wastage
+
+  2 . What is React?
+    - React is a front-end JavaScript library developed by Facebook in 2011
+    - It follows the component based approach which helps in building reusable UI components
+    - It is used for developing complex and interactive web and mobile UI
+
+  3 . What are the features of React?
+    - It uses the virtual DOM instead of the real DOM
+    - It follows uni-directional data flow or data binding
+    - It uses SSR and CSR
+
+  4 . List some of the major advantages of React?
+    - It increases the application’s performance
+    - Because of JSX, code’s readability increases
+    - Using React, writing UI test cases become extremely easy
+
+  5 . What are the limitations of React?
+    - React is just a library, not a full-blown framework
+    - Its library is very large and takes time to understand
+    - Coding gets complex as it uses inline templating and JSX
+
+  6 . How does virtual DOM works?
+    - Whenever any underlying data changes, the entire UI is re-rendered in Virtual DOM representation
+    - Then the difference between the previous DOM representation and the new one is calculated(virtual DOM and Real
+      DOM)
+    - Once the calculations are done, the real DOM will be updated with only the things that have actually changed
+
+  7 . Why can’t browsers read JSX?
+    - Browsers can only read JavaScript objects but JSX in not a regular JavaScript object.
+    - To enable a browser to read JSX, first, we need to transform JSX file into a JavaScript object using JSX
+      transformers like Babel and then pass it to the browser
+
+  8 . How is React different from Angular?
+    - React
+        - Only the View of MVC
+        - Uses virtual DOM
+        - One-way data binding(from parent to children)
+        - Created by facebook
+        - Needs an additional set of tools for testing
+        - Both supports CSR and SSR
+    - Angular
+        - Complete MVC
+        - Uses real DOM
+        - Two-way data binding
+        - Created by Google
+        - Complete tests solution within a single tool
+        - Both supports CSR and SSR
+
+  9 . What is the purpose of render() in React?
+    - Each React component must have a render() mandatory.
+    - It returns a single React element which is the representation of the native DOM component.
+
+  10 . What is Props?
+    - They are read-only components which must be kept pure and immutable
+    - They are always passed down from the parent to the child components throughout the application
+    - Needs to destruct props first
+
+  11 . What is a state in React and how is it used?
+    - States are the source of data and must be kept as simple as possible and it is mutable
+    - Used to create dynamic and interactive components
+    - Use the useEffect to initialize first
+
+  12 . Differentiate between states and props? State | Props
+    - Receive initial value from parent component Yes | Yes
+    - Parent component can change value No | Yes
+    - Set default values inside component Yes | Yes
+    - Changes inside component Yes | No
+    - Set initial value for child component Yes | Yes
+    - Changes inside child components No | Yes
+
+  13 . How can you update the state of a component?
+    - State of a component can be updated using setState()
+
+  14 . What are the different phases of React component’s lifecycle?
+    - Mounting: This is the phase when the component is about to start its life journey and make its way to the DOM
+    - Updating: Once the component gets added to the DOM, it can potentially update and re-render only when a prop or
+      state change occurs
+    - Unmounting: This is the final phase of a component’s life cycle in which the component is destroyed and removed
+      from the DOM
+
+  15 . Explain the lifecycle methods of React components?
+    - componentWillMount()
+    - componentDidMount()
+    - componentWillReceiveProps()
+    - shouldComponentUpdate()
+    - componentWillUpdate()
+    - componentDidUpdate()
+    - componentWillUnmount()
+
+  16 . What is an event in React?
+    - Events are the triggered reactions to specific actions like mouse hover, mouse click, key press
+    - Handling these events are similar to handling events in DOM elements
+
+  17 . What are synthetic events in React?
+    - Synthetic events are the objects which act as a cross-browser wrapper around the browser’s native event
+    - They combine the behavior of different browsers into one API
+
+  18 . What do you understand by refs in React?
+    - Refs is the short for References in React
+    - It is an attribute which helps to store a reference to a particular React element or component
+    - They come in handy when we need DOM measurements or to add methods to the components
+
+  19 . List some of the cases when you should use Refs?
+    - When you need to manage focus, select text or media playback
+    - To trigger imperative animations
+    - Integrate with third-party DOM libraries
+
+  20 . Difference between controlled and uncontrolled components?
+    - Controlled
+        - They do not maintain their own state
+        - Data is controlled by the parent component
+        - They take in the current values through props and then notify the changes via callbacks
+    - Uncontrolled
+        - They maintain their own state
+        - Data is controlled by the DOM
+        - Refs are used to get their current values
+
+  21 . What are Higher Order Components(HOC)?
+    - HOC are custom components which wrap another component within it
+    - Allow developers to reuse code logic in their projects
+    - Pure components
+    - HOCs can be used to add shared features, like authentication and data retrieval, logging to various components
+
+  22 . What are Pure Components?
+    - Pure components are class components that extend React.PureComponent
+    - Provide performance optimizations by preventing unnecessary re-renders when the data is same
+    - Simplify the code
+    - A “pure component” in React is a component that updates only when its properties or state have changed
+    - In contrast, a “non-pure component” re-renders each time the parent component re-renders, regardless of whether
+      its props or state have changed
+
+  23 . What were the major problems with MVC framework?
+    - DOM manipulation was very expensive
+    - Applications were slow and inefficient
+    - There was huge memory wastage
+
+  24 . Explain Flux?
+    - Flux is an architectural pattern which enforces the uni-directional data flow
+    - It controls derived data and enables communication between multiple components using a central Store which has
+      authority for all data
+
+  25 . What is Redux?
+    - Redux is a state container for JavaScript applications and is used for the entire applications state management
+
+  26 . What are the three principles that Redux follows?
+    - Single source of truth: The state of the entire application is stored in an object/ state tree within a single
+      store
+    - State is read only: The only way to change the state is to trigger an action, an action is a plain JS object
+      describing the change
+    - Changes are made with pure functions: Pure functions are those whose return value depends solely on the values of
+      their arguments
+
+  27 . List down the components of Redux?
+    - Action – It’s an object that describes what happened
+    - Reducer – It is a place to determine how the state will change
+    - Store – State/ Object tree of the entire application is saved in the Store
+    - View – Simply displays the data provided by the Store
+
+  28 . How are Actions defined in Redux?
+    - Actions in React must have a type property that indicates the type of ACTION being performed
+    - Defined as String constants
+    - Actions are created using the functions called Action Creators
+        ~~~text
+        function addTodo(text) {
+          return {
+            type: ADD_TODO,    
+            text    
+          }
+        }
+        ~~~
+  29 . Explain the role of Reducers?
+    - Reducers are pure functions which specify how the application’s state changes in response to an ACTION
+    - Reducers work by taking in the previous state and action, and then it returns a new state
+
+  30 . How is Redux different from Flux?
+    - Flux
+        - There are multiple stores
+        - State is mutable
+        - All the stores are disconnected and flat
+        - The Store contains state and change logic
+    - Redux
+        - There is only one store
+        - State is immutable
+        - Single store with hierarchical reducers
+        - Store and change logic are separate
+
+  31 . What are the advantages of Redux?
+    - Predictability of outcome
+    - Maintainability
+    - Server-side rendering
+    - Developer tools
+    - Community and ecosystem
+    - Organization
+
+  32 . What is React Router?
+    - React Router is a powerful routing library built on top of React, which helps in adding new screens and flows to
+      the application
+
+  33 . Why is switch keyword used in React Router v4?
+    - The ‘switch’ keyword is used when you want to display only a single route to be rendered amongst the several
+      defined routes
+    - The <switch> tag when in use matches the typed URL with the defined routes in sequential order
+    - When the first match is found, it renders the specified route. Thereby bypassing the remaining routes
+
+  34 . List down the advantages of React Router?
+    - A Router can be visualized as a single root component (<BrowserRouter>) in which we enclose the specific child
+      routes (<route>)
+    - No need to manually set History value: In React Router v4, all we need to do is wrap our routes within
+      the <BrowserRouter> component.
+
+  35 . What is the purpose of the mapStateToProps function in Redux?
+    - The mapStateToProps function in Redux is a way for a component to access the current state of the store and update
+      its props accordingly
+    - It does this by taking the current state of the store as an argument and returning an object that maps the state
+      to the props of the component
+    - This function is typically defined as a separate function outside the component and is passed as an argument to
+      the connect function
+
+  36 . Explain the difference between server-side rendering and client-side rendering in React?
+    - SSR
+        - Server-side rendering (SSR) is when the initial render of a React application is done on the server
+        - The server generates the HTML for the initial state of the application and sends it to the browser
+        - Benefits of SSR
+            - Improved performance for search engines and users on slow connections
+            - Faster time-to-first-byte
+    - CSR
+        - Client-side rendering (CSR) is when the React application is rendered entirely in the browser, using
+          JavaScript
+        - The browser requests the JavaScript bundle from the server and then renders the components on the client side
+        - Benefits of CSR
+            - Faster Load times for users on fast connections
+            - More responsive UI
+
+  37 . How do you handle data persistence in a React application?
+    - Local storage: This allows you to store key-value pairs in the browser’s local storage, which can be retrieved
+      even after the user closes the browser or restarts their device.
+    - Cookies: Cookies are small pieces of data that are stored in the user’s browser and can be accessed by the website
+      on subsequent visits.
+    - Server-side storage: You can also store data on a remote server using an API or a database such as MySQL,
+      Postgresql etc
+    - Redux: State management libraries like Redux can be used to manage and persist application state across different
+      components and sessions
+
+  38 . What is the difference between a stateless component and a stateful component in React?
+    - A stateless component, also known as a “dumb” or “presentational” component, is a component that does not maintain
+      its own internal state
+    - It receives data and callbacks through props (short for properties) and only renders the UI based on those props
+    - A stateful component, also known as a “smart” or “container” component, is a component that maintains its own
+      internal state
+    - It can handle internal state updates and side effects, and may also manage the state of other child components
+
+  39 . How do you handle optimization in a large React application?
+    - Use the React Developer Tools to identify and fix performance bottlenecks
+    - Use PureComponent and memo instead of Components
+    - Use the useEffect hook to handle side effects
+    - Use the useMemo hook to memoize expensive calculations
+    - Lazy loading
+    - Optimize the loading time of your application by using techniques like code minification, compression, and caching
+
+  40 . What is the purpose of the combineReducers function in Redux?
+    - The combineReducers function in Redux is used to combine multiple individual reducers into a single root reducer
+    - This root reducer is then passed to the createStore function to create the Redux store
+
+  41 . How do you handle testing in a React application?
+    - React Testing Library is a great tool for testing React components
+    - It’s a set of helpers that let you test React components without relying on their implementation details
+
+  42 . What is the difference between a functional component and a class component in React?
+    - In React, a functional component is a plain JavaScript function that takes in props and returns a React element
+    - A class component is a JavaScript class that extends React.Component and has a render method that returns a React
+      element
+
+  43 . Explain the concept of a Context in React?
+    - In React, context is a way to share data that is considered “global” for a component tree
+    - It allows you to pass data through the component tree without having to pass props down manually at every level
+    - A component that needs to access the context data can consume it by using the useContext hook
+
+  44 . What is the difference between state and props in React?
+    - State
+        - State is mutable
+        - State can be changed by the component
+        - State is initialized and managed by the component
+    - Props
+        - Props are immutable
+        - Props are read only
+        - Props are passed from parent to child component
+
+  45 . Explain the concept of a Hook in React?
+    - Hooks are a new feature in React that allows us to add state and other React features to functional components
+    - Hooks are named functions that start with the word use and allow us to reuse stateful logic across components
+      without having to write a class component
+
+  46 . How do you handle localization in a React application?
+    - Handling localization in a React application typically involves creating translated versions of your text content
+      and displaying the appropriate version based on the user’s preferred language
+    - One way to handle localization in a React application is to use a library such as react-i18next
+    - This library provides a set of tools for internationalization and localization, including the ability to define
+      translation keys and their corresponding translations, as well as providing a way to switch between languages at
+      runtime
+
+  47 . Explain the concept of a Custom Hook in React?
+    - A Custom Hook in React is a JavaScript function that lets you extract state logic and behavior out of a component,
+      and reuse it across multiple components
+    - Custom Hooks allow you to abstract away state and behavior that is common across your application into a reusable
+      piece of code
+
+  48 . How do you handle accessibility in a React application?
+    - Handling accessibility in a React application involves making sure that your application can be used by as many
+      people as possible, including those with disabilities
+    - This can be achieved through various techniques, including:
+        - Semantic HTML: Use semantic HTML elements, such as <button>, <nav>, and <header>, to clearly define the
+          structure and purpose of your content
+        - Accessible Props: Use accessible props, such as aria-label, role, and tabIndex, to provide additional
+          information to assistive technologies, such as screen readers
+        - Keyboard Navigation: Ensure that all functionality can be accessed using a keyboard, and that keyboard focus
+          is managed correctly
+        - Color Contrast: Make sure that the contrast between the text and the background is high enough to be readable
+          by people with color blindness or low vision.
+        - Alternative Text: Provide alternative text for images, videos, and other non-text elements to ensure that
+          information is accessible to screen reader users.
+        - Screen Reader Testing: Test your application with screen readers and other assistive technologies to identify
+          and fix any accessibility issues.
+
+  49 . What is the difference between a reducer and an action in Redux?
+    - Action is a plain JavaScript object that describes the change that should be made to the state of the application
+    - It has a type property that defines the type of action being performed, and a payload property
+    - A reducer is a pure function that takes the current state of the application and an action, and returns the next
+      state of the application
+
+  50 . How do you handle data validation in a React application?
+    - PropTypes
+    - Custom validation functions
+    - Third party libraries
+
+  51 . Explain the concept of a Thunk in Redux?
+    - A Thunk in Redux is a function that returns another function instead of a plain action object
+    - It’s used to perform asynchronous operations and dispatch multiple actions
+    - Thunks allow you to write action creators that return a function instead of an action
+
+  52 . How do you handle security in a React application?
+    - Input validation: Validate all user inputs on the client and server side to prevent any malicious data from being
+      processed
+    - Authenticating and authorizing users: Use a secure authentication mechanism such as JSON Web Tokens (JWT) to
+      ensure that only authorized users can access sensitive data
+    - Storing sensitive data securely: Do not store sensitive information such as passwords and credit card numbers in
+      local storage, use encrypted storage instead
+    - Implementing HTTPS
+    - Keeping dependencies up-to-date
+    - Regular security audits
+
+  53 . Explain the concept of a Provider in React-Redux?
+    - The “Provider” in React-Redux is a higher-order component that wraps your React application and provides it with
+      the ability to access the Redux store
+    - It allows you to pass the store down to your components using context, without having to manually pass it down as
+      props through every level of the component tree
+
+  54 . How do you handle code splitting in a React application?
+    - Dynamic Imports: Dynamic imports allow you to load a component lazily only when it is needed
+    - Webpack Bundle Analyzer: This is a tool that provides a visual representation of the code and its size. You can
+      use this tool to identify the large chunks of code that can be split into smaller chunks and loaded lazily
+
+  55 . Explain the concept of a Sagas in Redux?
+    - A Saga in Redux is a way to manage side effects in a Redux application
+    - It is implemented as a middleware using generator functions in JavaScript and runs in the background, separate
+      from the main thread of your application
+
+  56 . How do you handle code optimization in a large React application?
+    - Code splitting
+    - Lazy loading
+    - Use of a bundler such as Webpack
+    - Use of caching
+    - Use of efficient algorithms and data structures
+    - Regular performance monitoring and profiling
+    - Use of optimization techniques such as memoization
+
+  57 . Explain the concept of a Middleware in Redux?
+    - Middleware is a software component that sits between the store and the action dispatching process to add
+      additional functionality, such as logging, crash reporting, handling asynchronous actions
+    - It allows you to extend the store’s behavior without modifying the store itself
+
+  58 . What is the difference between a React class and Functional component?
+    - React Class
+        - JavaScript classes that extend the React.Component class, have a render method, and can have additional
+          lifecycle methods and state
+    - Functional Component
+        - Plain JavaScript functions that return the component’s JSX markup, and that they can use state and other React
+          features with hooks
+
+  59 . Explain the concept of a Memoization in React?
+    - Memoization is a technique used to optimize the performance of a component by avoiding unnecessary re-renders
+    - It involves caching the results of a component’s render so that if the inputs (props) to the component do not
+      change, the cached result can be reused, instead of re-computing the result
+
+  60 . How do you connect a React component to a Redux store?
+    - To connect a React component to a Redux store, you use the connect function from the react-redux library
+    - The connect function connects the component to the Redux store, allowing it to access the state and dispatch
+      actions
+
+  61 . Can you differentiate between mapStateToProps and mapDispatchToProps?
+    - mapStateToProps connects parts of the Redux state to a React component's props, while mapDispatchToProps connects
+      Redux actions to a React component's props.
