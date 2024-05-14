@@ -516,6 +516,43 @@
     - Compatible with stream API and parallel processing
     - Enhance code readability, maintainability and re-usability
 
+  76 . What are the benefits of using Multithreading?
+    - Allow the program to run continuously even if a part of it is blocked
+    - Improve performance as compared to traditional parallel programs that use multiple processes
+    - Saves time and parallelism tasks
+    - Allows to write effective programs that utilize maximum CPU time
+    - Improves the responsiveness of complex applications or programs
+
+  77 . What's the difference between thread and process?
+    - Thread
+        - Smallest unit of a particular process and it can execute different parts of the program at the same time
+        - Threads are easy to create
+        - It requires less time for creation, termination, and context switching
+        - Threads share the same memory address of the process they belong to
+    - Process
+        - A program that is in execution containing multiple threads
+        - These are difficult to create
+        - It requires more time for creation, termination, and context switching
+        - Each process has different memory space or address
+
+  78 . What are the wait() and sleep() methods?
+    - wait(): Currently executing thread will wait until another thread notifies it to wake up until some other threads
+      call notify() or notifyAll() method
+    - sleep(): This method is used to temporarily suspend the execution of a thread for a specified amount of time
+
+  79 . What is the start() and run() method of Thread class?
+    - start(): A new thread is created and executes the task in run() method, and can only invoke this once
+    - run(): No new thread is created and executes the task, and can invoke this multiple times
+
+  80 . Explain the meaning of the deadlock and when it can occur?
+    - Deadlock, as the name suggests, is a situation where multiple threads are blocked forever
+    - It generally occurs when multiple threads hold locks on different resources and are waiting for other resources to
+      complete their task
+
+  81 . What is the use of join() in threads?
+    - Join method is an instance method on the Thread class
+    - join() method forces the execution of main method to stop until the specified thread with join method completes
+      execution
 
 - Spring
 
@@ -940,21 +977,21 @@
 
   46 . What are the difference between SpringBoot and Spring MVC?
     - SpringBoot
-      - Spring Boot is a module of Spring for standalone application
-      - It provides default configurations to build Spring-powered framework
-      - There is no need to build configuration manually
-      - There is no requirement for a deployment descriptor
-      - It avoids boilerplate code and wraps dependencies together in a single unit
-      - It reduces development time and increases productivity
-      - Powerful batch processing is provided by Spring Boot
+        - Spring Boot is a module of Spring for standalone application
+        - It provides default configurations to build Spring-powered framework
+        - There is no need to build configuration manually
+        - There is no requirement for a deployment descriptor
+        - It avoids boilerplate code and wraps dependencies together in a single unit
+        - It reduces development time and increases productivity
+        - Powerful batch processing is provided by Spring Boot
     - SpringMVC
-      - Spring MVC is a model view controller-based web applications under the Spring framework
-      - It provides ready to use features for building a web application
-      - It requires build configuration manually
-      - A Deployment descriptor is required
-      - It specifies each dependency separately
-      - It takes more time in development
-      - Spring MVC do not provide powerful batch processing
+        - Spring MVC is a model view controller-based web applications under the Spring framework
+        - It provides ready to use features for building a web application
+        - It requires build configuration manually
+        - A Deployment descriptor is required
+        - It specifies each dependency separately
+        - It takes more time in development
+        - Spring MVC do not provide powerful batch processing
 
 - Hibernate
 
