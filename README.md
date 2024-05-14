@@ -938,8 +938,197 @@
     - Security: GET requests are typically logged by servers and intermediaries, potentially exposing sensitive data or
       actions in the URL parameters.
 
-  46 . What are the difference between SpringBoot and SpringMVC?
-  - 
+  46 . What are the difference between SpringBoot and Spring MVC?
+    - SpringBoot
+      - Spring Boot is a module of Spring for standalone application
+      - It provides default configurations to build Spring-powered framework
+      - There is no need to build configuration manually
+      - There is no requirement for a deployment descriptor
+      - It avoids boilerplate code and wraps dependencies together in a single unit
+      - It reduces development time and increases productivity
+      - Powerful batch processing is provided by Spring Boot
+    - SpringMVC
+      - Spring MVC is a model view controller-based web applications under the Spring framework
+      - It provides ready to use features for building a web application
+      - It requires build configuration manually
+      - A Deployment descriptor is required
+      - It specifies each dependency separately
+      - It takes more time in development
+      - Spring MVC do not provide powerful batch processing
+
+- Hibernate
+
+  1 . What is Hibernate?
+    - Hibernate is one of the most popular Java frameworks that simplify the development of Java application to interact
+      with the database
+    - It is an ORM tool
+
+  2 . What are the major advantages of Hibernate Framework?
+    - Open sourced and lightweight
+    - Performance is fast
+    - Helps to generate independent queries
+    - Provide facilities to create a table
+    - Query statistics and database status
+
+  3 . Advantages of using Hibernate over JDBC?
+    - Eliminates a lot of boilerplate code
+    - Supports inheritance and associations
+    - HQL is more object-oriented and closer to java
+    - Implicitly provides transaction management
+    - It wraps exceptions and throw JDBCExceptions which are unchecked exceptions
+
+  4 . What is an ORM tool?
+    - A technique that maps the java object to a database table
+    - An ORM tool helps in simplifying data creation, manipulation and access
+
+  5 . Why use Hibernate Framework?
+    - It overcomes the exception handling
+    - Code portability is easily handled
+    - Changing of the database costs a lot when working on JDBC
+    - Strengthens the object level
+    - Reduces the boilerplate code
+
+  6 . What are the different functionalities supported by Hibernate?
+    - ORM tool
+    - Uses HQL
+    - Supports auto DDL operations
+    - Auto primary key generation support
+
+  7 . What are the technologies that are supported by Hibernate?
+    - Maven
+    - Java J2EE
+    - eclipse
+
+  8 . What is HQL?
+    - Hibernate Query Language
+    - It is an object-oriented query language and is independent of the database
+
+  9 . How to achieve mapping in Hibernate?
+    - Association mappings are one of the key features of Hibernate
+    - It supports the same associations as the relational database model
+        - One-to-one
+        - One-to-many
+        - Many-to-many
+        - Many-to-one
+
+  10 . Mention some important annotations used in Hibernate mapping?
+    - javax.persistence.GenerateValue
+    - javax.persistence.Column
+    - javax.persistence.Table
+    - javax.persistence.Entity
+
+
+- JPA
+
+  1 . What is JPA?
+    - Java Persistence API (JPA) is a specification for managing data persistence in Java applications
+    - Used to simplify the process of writing code for data persistence by providing a high-level abstraction layer over
+      the underlying data storage technology
+    - JPA helps in mapping Java objects to relational database tables and allows developers to perform CRUD operations
+
+  2 . What is ORM Framework and how is JPA related to that?
+    - An Object-Relational Mapping (ORM) framework is a software tool that allows developers to map object-oriented
+      programming language constructs to relational database constructs
+    - It provides a layer of abstraction between the application code and the database, allowing developers to work with
+      objects and classes rather than SQL queries
+
+  3 . What are some benefits of using an ORM framework like JPA?
+    - Increased Productivity: JPA provides a high level of abstraction that allows developers to focus on business logic
+      instead of writing SQL queries, thus leads to faster development cycles and fewer errors
+    - Portability: JPA abstracts away the details of the underlying database, which makes it possible to switch
+      databases without changing the application code
+    - Scalability: JPA provides a caching mechanism that can help improve application performance by reducing the number
+      of database queries needed to access data. This can help an application scale better as the number of users and
+      amount of data grows
+    - Maintainability: JPA provides a clear separation between application logic and persistence logic. This makes it
+      easier to maintain and modify an application over time
+
+  4 . Can you tell the difference between JPA and Hibernate?
+    - JPA provides a standard set of interfaces and annotations for ORM, while Hibernate is a concrete implementation of
+      those interfaces and annotations.
+
+  5 . What are entities in JPA? Explain the concept in detail?
+    - An entity is a lightweight Java class that represents a persistent data object
+    - Entities are used to map Java objects to database tables, where each entity corresponds to a row in the table
+    - The most commonly used annotation for defining entities is @Entity, which marks a Java class as an entity
+    - JPA also provides annotations for defining relationships between entities, such as @OneToOne, @OneToMany,
+      @ManyToOne, and @ManyToMany
+
+  6 . What is JPQL and how is it used in JPA?
+    - JPQL stands for Java Persistence Query Language
+    - It is a platform-independent object-oriented query language that is used to retrieve data from a relational
+      database using Java Persistence API
+    - JPQL is similar to SQL (Structured Query Language) in terms of syntax, but instead of operating on tables and
+      columns, it operates on JPA entities and their corresponding attributes
+
+  7 . What are the advantages of using JPA over JDBC?
+    - Object-Relational Mapping: It offers an Object-Relational Mapping (ORM) framework that enables developers to map
+      Java objects to database tables without having to create SQL queries
+    - Portability: It is a standardized API that is independent of any specific database implementation. This means that
+      applications written using JPA can be easily ported to different databases without having to rewrite the database
+      access code
+    - Increased Productivity: It offers a higher-level API that is simpler and easier to use than JDBC, thus reducing
+      the amount of time that developers spend writing and debugging database access code, and allows them to focus on
+      other aspects of the application
+    - Improved Performance: It uses a caching mechanism that can enhance performance. This may lead to quicker response
+      times and improved scalability
+    - Transaction Management: It offers a transaction management system that simplifies the process of managing database
+      transactions
+    - Object-Oriented Features: It provides support for object-oriented features such as inheritance and polymorphism.
+      This allows developers to work with Java objects instead of relational tables, which is easy to maintain
+
+  8 . Difference between JPA Repository and CRUD Repository?
+    - JPA Repository extends the functionality of the CRUD Repository by providing additional methods and the ability to
+      define custom queries
+    - However, if you only need basic CRUD functionality, then using CRUD Repository may be sufficient
+
+  9 . What is a Named Query in JPA? How is it used? And what are the benefits of using this?
+    - A named query is a pre-defined query that is given a name and can be used in multiple places in an application
+    - It is defined in the entity class using the @NamedQuery annotation and can be used to retrieve entities based on
+      specific criteria
+    - Benefits are,
+        - Re-usability: named queries can be defined once and used multiple times throughout the application
+        - Performance: named queries are compiled and cached by the JPA provider, which can improve performance for
+          frequently used queries
+        - Maintenance: named queries can be easily modified or updated in a central location, rather than scattered
+          throughout the codebase
+
+  10 . What is the purpose of EntityManager in JPA?
+    - The EntityManager in JPA is the primary interface through which an application interacts with the Persistence
+      Context, which is responsible for managing the lifecycle of entity objects and their persistence in the database
+    - It is responsible for,
+    - Creating and removing entity objects
+    - Retrieving entity objects from the database
+    - Updating and persisting changes made to entity objects
+    - Managing the association between entities
+    - Managing the lifecycle of entity objects
+    - Executing queries on the database using JPQL
+    - Caching entity objects for improved performance
+
+  11 . What is the purpose of the @JoinColumn annotation in JPA?
+    - The @JoinColumn annotation in JPA is used to specify a join column for a relationship mapping between two entities
+    - The @JoinColumn annotation can be applied to a field or property that is mapped as a foreign key column in the
+      database
+
+  12 . What is the purpose of the @Transactional annotation in JPA?
+    - The @Transactional annotation in JPA is used to indicate that a method should be executed within a transaction
+    - It is used to define the scope of a transaction, which determines when changes made to the database will be
+      committed
+    - It can be applied at the class or method level
+
+  13 . Difference between JpaRepository.save() and JpaRepository.saveAndFlush() methods?
+    - save()
+        - It saves an entity to the database and returns the saved entity
+        - It returns the saved entity
+        - The changes made to the entity are not immediately persisted in the database. They are persisted when the
+          current transaction is committed
+        - This method is faster than saveAndFlush()
+    - saveAndFlush()
+        - It saves an entity to the database and immediately flushes the changes to the database
+        - It returns the saved entity
+        - The changes made to the entity are immediately persisted to the database, regardless of whether the current
+          transaction is committed or not
+        - This method is slower than save()
 
 - SOLID Principals
     - Single Responsibility Principal
@@ -1106,9 +1295,11 @@
     - Is a technique that is used to add redundant data to a table in order to optimize database access speed
 
   11 . What are the types of keys in a database?
-    - Candidate key
-    - Primary key
-    - Secondary key
+    - Super key: If you can create a unique value by combining multiple columns or single column
+    - Candidate key: Any single column which can uniquely identify value
+    - Primary key: A key from candidate keys
+    - Alternative key: All the keys except primary key from candidate keys
+    - Foreign key
     - Composite key
 
   12 . Differences between unique key and primary key?
@@ -1516,7 +1707,7 @@
     - Actions in React must have a type property that indicates the type of ACTION being performed
     - Defined as String constants
     - Actions are created using the functions called Action Creators
-        ~~~text
+        ~~~js
         function addTodo(text) {
           return {
             type: ADD_TODO,    
@@ -1664,7 +1855,7 @@
     - Handling accessibility in a React application involves making sure that your application can be used by as many
       people as possible, including those with disabilities
     - This can be achieved through various techniques, including:
-        - Semantic HTML: Use semantic HTML elements, such as <button>, <nav>, and <header>, to clearly define the
+        - Semantic HTML: Use semantic HTML elements, such as \<button\>, \<nav\>, and \<header\>, to clearly define the
           structure and purpose of your content
         - Accessible Props: Use accessible props, such as aria-label, role, and tabIndex, to provide additional
           information to assistive technologies, such as screen readers
