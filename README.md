@@ -554,6 +554,9 @@
     - join() method forces the execution of main method to stop until the specified thread with join method completes
       execution
 
+  82 . What is the default access modifier if no access modifier is specified in Java?
+    - default
+
 - Spring
 
   1 . Explain Inversion Of Control, Dependency Inversion, Dependency Injection concepts in Spring?
@@ -992,6 +995,27 @@
         - It specifies each dependency separately
         - It takes more time in development
         - Spring MVC do not provide powerful batch processing
+
+  47 . SpringBoot oauth2 /oauth/token endpoint body example request and response?
+    - Request
+    ~~~json
+    {
+      "grant_type":"password",
+      "client_id":"client_name",
+      "auth_type":"auth_type",
+      "secret":"Pass123@"
+    }
+    ~~~
+    - Response
+    ~~~json
+    {
+      "access_token":"2YotnFZFEjr1zCsicMWpAA",
+      "token_type":"Bearer",
+      "expires_in":3600,
+      "scope":"openid email profile",
+      "refresh_token":"eyJraWQiOiIxZTlnZGs3IiwiYWxnIjoiUl..."
+    }
+    ~~~
 
 - Hibernate
 
@@ -1983,3 +2007,71 @@
   61 . Can you differentiate between mapStateToProps and mapDispatchToProps?
     - mapStateToProps connects parts of the Redux state to a React component's props, while mapDispatchToProps connects
       Redux actions to a React component's props.
+
+- CSS and SCSS
+
+  1 . Why SCSS is preferred over CSS?
+    - Variables: SCSS allows you to define variables which can be reused throughout your stylesheets
+    - Nesting: SCSS allows for nesting of CSS rules, which can make your stylesheets more organized and easier to read
+    - Mixins: SCSS supports mixins, which are reusable blocks of styles
+    - Functions: SCSS allows for the creation of functions, enabling more complex calculations and transformations
+    - Extensions: SCSS provides additional features and syntax that CSS does not have, such as the @extend directive,
+      which allows one selector to inherit styles from another.
+  
+~~~scss
+// Define variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// Use variables
+.btn-primary {
+  background-color: $primary-color;
+  color: white;
+}
+----------------------------------
+// Nesting example
+.navbar {
+background-color: #333;
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+----------------------------------
+// Define a mixin
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// Use the mixin
+.btn {
+  @include border-radius(5px);
+}
+----------------------------------
+// Define a function
+@function em($px, $base) {
+  @return ($px / $base) * 1em;
+}
+
+// Use the function
+h1 {
+  font-size: em(24px, 16px); // Assuming a base font size of 16px
+}
+----------------------------------
+// Extending
+%text-style {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+// Use the placeholder selector with @extend
+.custom-text {
+  @extend %text-style;
+  font-weight: bold;
+}
+~~~
+
+- Javascript
