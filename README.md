@@ -997,25 +997,28 @@
         - Spring MVC do not provide powerful batch processing
 
   47 . SpringBoot oauth2 /oauth/token endpoint body example request and response?
-    - Request
-    ~~~json
-    {
-      "grant_type":"password",
-      "client_id":"client_name",
-      "auth_type":"auth_type",
-      "secret":"Pass123@"
-    }
-    ~~~
-    - Response
-    ~~~json
-    {
-      "access_token":"2YotnFZFEjr1zCsicMWpAA",
-      "token_type":"Bearer",
-      "expires_in":3600,
-      "scope":"openid email profile",
-      "refresh_token":"eyJraWQiOiIxZTlnZGs3IiwiYWxnIjoiUl..."
-    }
-    ~~~
+- Request
+
+~~~json
+{
+  "grant_type": "password",
+  "client_id": "client_name",
+  "auth_type": "auth_type",
+  "secret": "Pass123@"
+}
+~~~
+
+- Response
+
+~~~json
+{
+  "access_token": "2YotnFZFEjr1zCsicMWpAA",
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "scope": "openid email profile",
+  "refresh_token": "eyJraWQiOiIxZTlnZGs3IiwiYWxnIjoiUl..."
+}
+~~~
 
 - Hibernate
 
@@ -1418,6 +1421,34 @@
     - Drop
         - Drop existing records as well as the table, DDL syntax
 
+  18 . What is partitioning?
+    - Partitioning is the process of separating data into logical subsets(physical segments)
+
+  19 . Which objects can be partitioned?
+    - Tables and indexes can be partitioned
+        - Table not partitioned, relevant index partitioned
+        - Table partitioned, relevant index not partitioned
+        - Table partitioned, relevant index partitioned
+
+  20 . What are the advantages of partitioning?
+    - Improved administration because many operations can be carried out on separate partitions
+    - Partitions that are no longer required can simply be dropped
+    - You can improve the performance of queries if only specific partitions have to be read
+    - Partitioning is transparent for the application and does not require any change to SQL queries and DML statements
+
+  21 . What problems can occur in connection with partitioning?
+    - Queries that do not contain the partitioning criterion in the WHERE clause, must scan ALL partitions
+
+  22 . How many types of partitioning exist?
+    - Range Partitioning
+      - Date range
+    - List Partitioning
+      - Based on a list value
+    - Hash Partitioning
+      - Hash algorithm
+    - Combined Partitioning
+
+    
 - HTTP Status Codes
     - 1xx: Informational codes: Request received and process is continuing
 
@@ -1447,6 +1478,22 @@
         - 502: Bad gateway
         - 503: Service unavailable
         - 504: Gateway timeout
+
+
+- REST API
+
+  1 . What are REST api methods?
+    - GET: Retrieve data on the server(idempotent and safe)
+    - POST: Sends data to the server for processing
+    - PUT: Replace a resource identified with a given URL(idempotent but unsafe)
+    - DELETE: Resource is deleted(idempotent but unsafe)
+    - OPTION: Returns a list of HTTP methods that are supported
+    - HEAD: Simply returns metadata about a resource on the server
+    - TRACE: Diagnostic, debugging and troubleshooting
+
+  2 . What is meant by idempotent and unsafe?
+    - Idempotent means multiple invocations leave the server in the same state
+    - Unsafe means that method change the state of a resource on the server
 
 - Kafka
 
@@ -1590,6 +1637,13 @@
     - Only 1 consumer can read from 1 partition for order maintenance
     - In the event of a leader or a broker failure, kafka ensures quick leader election and data replication from
       in-sync replicas(ISR)
+    - The number of partitions in a topic determines the maximum parallelism of consumption
+
+  24 . What is replication?
+    - Kafka provides fault tolerance through data replication
+    - Each partition in Kafka can have one or more replicas
+    - Replicas are copies of the partition's data stored on different brokers
+    - Replication ensures that if a broker fails, partitions can be served from replicas on other brokers
 
 - React
 
@@ -2017,7 +2071,7 @@
     - Functions: SCSS allows for the creation of functions, enabling more complex calculations and transformations
     - Extensions: SCSS provides additional features and syntax that CSS does not have, such as the @extend directive,
       which allows one selector to inherit styles from another.
-  
+
 ~~~scss
 // Define variables
 $primary-color: #3498db;
