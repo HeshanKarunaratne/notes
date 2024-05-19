@@ -1441,14 +1441,31 @@
 
   22 . How many types of partitioning exist?
     - Range Partitioning
-      - Date range
+        - Date range
     - List Partitioning
-      - Based on a list value
+        - Based on a list value
     - Hash Partitioning
-      - Hash algorithm
+        - Hash algorithm
     - Combined Partitioning
 
-    
+  23 . What is vacuum?
+    - Vacuuming is a crucial process in postgres that reclaims disk space and improves query performance by removing
+      dead and outdated tuples(command: Vacuum FULL)
+    - It performs 2 main tasks
+        - Freeing up disk space
+        - Updating statistics
+    - It requires an exclusive lock on the table
+    - The pg_stat_progress_vacuum view includes information such as the current table being vacuumed, the number of dead
+      tuples found, the number of pages scanned, and the current state of the vacuum operation
+    - Configuring vacuum depends on,
+        - Amount of data it manages
+        - Number of Delete/Updates
+
+  24 . What is the purpose of autovacuum process in postgres?
+    - The autovacuum process in postgres is responsible for automatically managing the database's physical storage and
+      preventing excessive bloat caused by update and delete operations
+
+
 - HTTP Status Codes
     - 1xx: Informational codes: Request received and process is continuing
 
@@ -1644,6 +1661,49 @@
     - Each partition in Kafka can have one or more replicas
     - Replicas are copies of the partition's data stored on different brokers
     - Replication ensures that if a broker fails, partitions can be served from replicas on other brokers
+
+  25 . What is the use of consumer groups?
+    - To allow multiple consumers to divide the work of consuming messages from multiple partitions
+    - Each consumer in the group is assigned one or more partitions, ensuring that every partition is consumed by only
+      one consumer within the group
+
+  26 . What is replication-factor?
+    - The number of copies of the data that will be maintained across different brokers
+    - A higher replication factor ensures higher availability and fault tolerance
+
+  27 . What are partitions?
+    - This parameter defines the number of partitions into which the topic will be divided
+    - More partitions can improve throughput and enable more parallelism in consuming the topic
+
+  28 . Different ways consumers consume from topics?
+    - Single consumer read data from one partition
+        - Consumers in multiple consumer groups can also read from single partition when they have different group ids
+        - They maintain different offset values
+    - Single consumer read data from two partitions
+        - When a consumer group subscribes to a topic, Kafka uses a partition assignment strategy to distribute the
+          partitions among the consumers
+        - If there are more partitions than consumers in the group, some consumers will be assigned more than one
+          partition
+    - Multiple consumers read data from one partition
+        - Each consumer in the group is assigned a subset of the partitions to consume from, ensuring that each
+          partition is consumed by only one consumer within the group
+        - Multiple consumer groups can read from the same partition simultaneously
+    - Single consumer read data from one partition with one replication
+        - A replication factor of 1 means that there is only one copy of the data, stored on a single broker
+        - If the broker holding the data fails, the data becomes unavailable until the broker is restored
+        - Less overhead in terms of data replication
+
+  29 . What is Kafka re-balancing?
+    - Re-balancing is a process where the distribution of partition ownership among consumer group members is adjusted
+    - This process ensures that each partition of a Kafka topic is assigned to a single consumer within a consumer group
+    - Re-balancing can be triggered,
+        - A new consumer joins the consumer group kafka needs to redistribute the partitions so that the new consumer
+          can also start consuming data
+        - When an existing consumer crashes and shut down, kafka needs to reassign the partitions that were previously
+          assigned to this consumer to other remaining consumers
+        - When topic partitions are added or removed
+        - Any change to consumer groups configuration
+
 
 - React
 
