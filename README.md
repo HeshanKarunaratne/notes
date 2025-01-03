@@ -1512,6 +1512,14 @@
     - Idempotent means multiple invocations leave the server in the same state
     - Unsafe means that method change the state of a resource on the server
 
+  3 . What are common API architecture styles?
+    - SOAP - XML-based and best for enterprise applications
+    - REST - Popular, easy-to-implement, HTTP methods, ideal for web services
+    - GraphQL - Query language, request specific data, faster responses
+    - gRPC - Suitable for microservices architectures
+    - WebSocket - Real-time, bidirectional
+    - Webhook - Event-driven, HTTP callbacks, asynchronous
+
 - Kafka
 
   1 . What is the role of the offset?
