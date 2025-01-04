@@ -1515,10 +1515,21 @@
   3 . What are common API architecture styles?
     - SOAP - XML-based and best for enterprise applications
     - REST - Popular, easy-to-implement, HTTP methods, ideal for web services
-    - GraphQL - Query language, request specific data, faster responses
-    - gRPC - Suitable for microservices architectures
-    - WebSocket - Real-time, bidirectional
+    - GraphQL - Query language, request specific data, faster responses, clients can request exactly the data they need
+    - gRPC(Google Remote Procedure Call) - Suitable for microservices architectures. It uses Protocol Buffers for data serialization
+    - WebSocket - Real-time bidirectional data exchange between a client and a server
     - Webhook - Event-driven, HTTP callbacks, asynchronous
+    - MQTT(Message Queuing Telemetry Transport) - A lightweight publish-subscribe messaging protocol designed for low-bandwidth, high-latency, or unreliable networks.
+    - AMQP(Advanced Messaging Queuing Protocol) - Message oriented middleware reliable for message delivery, routing, and queuing, making it suitable for enterprise integration scenarios
+    - SSE(Server Sent Events) - A server-push technology that allows a server to send updates to a client over an HTTP connection in a unidirectional manner
+
+  4 . What are common software architecture patterns?
+    - Event Driven: Components communicate through events, ideal for real-time processing.
+    - Layered: Organizes the system into layers, each with a specific responsibility, promoting separation of concerns.
+    - Monolithic: All functionalities are combined into a single application, suitable for simpler, smaller applications
+    - Microservices: The System is divided into independent services, each responsible for a specific function, allowing for scalability and flexibility.
+    - MVC: This approach separates the application into three interconnected components, separating internal representations of information from how information is presented and accepted
+    - Master-slave: One component (master) controls one or more other components (slaves), commonly used in database replication.
 
 - Kafka
 
