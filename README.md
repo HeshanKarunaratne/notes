@@ -1465,6 +1465,20 @@
     - The autovacuum process in postgres is responsible for automatically managing the database's physical storage and
       preventing excessive bloat caused by update and delete operations
 
+  25 . SQL Execution order?
+    - FROM / JOIN
+    - WHERE
+    - GROUP BY
+    - HAVING
+    - SELECT
+    - DISTINCT
+    - ORDER BY
+    - LIMIT / OFFSET
+
+  26 . Give some optimization tips?
+    - Maximize the WHERE clause because it executes early and to reduce the size of the data set
+    - The HAVING clause is executed after WHERE & GROUP BY. So move any appropriate conditions to the WHERE clause
+    - LIMIT, OFFSET, DISTINCT occur at the end of the query, so these dont make a significant impact to the performance
 
 - HTTP Status Codes
     - 1xx: Informational codes: Request received and process is continuing
