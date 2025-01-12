@@ -1545,6 +1545,33 @@
     - MVC: This approach separates the application into three interconnected components, separating internal representations of information from how information is presented and accepted
     - Master-slave: One component (master) controls one or more other components (slaves), commonly used in database replication.
 
+  5 . RESTFul API implementation strategies?
+    - Domain model driven design
+      - Design APIs bases on domain model reflecting real world entities and their relationship
+      - eg: /users/{id} and /orders/{id}
+    - Query Language support
+      - Allow advanced data retrieval by supporting filtering, sorting and querying
+      - eg: /products?category=electronics&sort=price_asc
+    - Implement Idempotence property
+      - Ensure safe and predictable operations for retries, particularly for PUT, DELETE, and GET
+    - Use semantic paths
+      - Favour meaningful nouns over verbs for endpoints
+      - eg: /users/123/orders
+    - Choose HTTP methods and Status codes
+    - Versioning
+      - Maintain backward compatibility and introduce changes via versioning
+      - eg: URI Versioning: /v1/users
+
+  6 . How to boost API performance?
+    - Use caching: Store frequently accessed data in memory
+    - Minimize payload size: Send only necessary data in responses
+    - Use Asynchronous processing
+    - Load balancing: Distribute API requests across multiple servers
+    - Optimize data formats - use lightweight data formats like JSON
+    - Connection pooling: Reuse connections to reduce overhead
+    - Use CDN: Deliver static content faster via CDNs
+    - Implement an API Gateway: Offload routing and security to an API Gateway
+
 - Kafka
 
   1 . What is the role of the offset?
