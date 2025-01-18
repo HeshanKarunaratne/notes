@@ -1467,6 +1467,7 @@
 
   25 . SQL Execution order?
     - FROM / JOIN
+    - ON
     - WHERE
     - GROUP BY
     - HAVING
@@ -1474,6 +1475,18 @@
     - DISTINCT
     - ORDER BY
     - LIMIT / OFFSET
+
+    ~~~txt
+    SELECT column_a, column_b
+    FROM t1
+    JOIN t2
+    ON t1.column_a = t2.column_b
+    WHERE constraint_expression
+    GROUP BY column
+    HAVING constraint_expression
+    ORDER BY column ASC/DESC
+    LIMIT count
+    ~~~~
 
   26 . Give some optimization tips?
     - Maximize the WHERE clause because it executes early and to reduce the size of the data set
