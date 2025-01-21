@@ -1297,6 +1297,17 @@
     - Consistency across different environments
     - They handle tasks like deployment, scaling, service discovery, load balancing and fault tolerance
 
+  14 . What are the microservices patterns?
+    - API Gateway Pattern: Acts as the single entry point for all client requests, directing them to the right microservice
+    - Circuit Breaker Pattern: Monitors the health of services, stopping requests to failing microservices
+    - Service Registry Pattern: Keeps a central list of all microservices, making it easier to find and coordinate them
+    - Service Mesh Pattern: Manages how services interact with each other
+    - Event Driven Pattern: Encourage communication through events enabling loose coupling
+    - Saga Pattern: Manages transactions that span multiple services by breaking them into steps, with the ability to undo steps if something goes wrong
+    - Sidecar Pattern: Pairs each microservice with a dedicated container to handle tasks like logging and security
+    - CQRS Pattern: Separate data handling into two parts: One for reading and one for writing
+    - Bulkhead Pattern: Isolates microservices in separate containers or VM to contain failures and prevent them from affecting other parts of the system
+
 - SQL
   1 . What is a database?
     - A database is an organized collection of logically related data
