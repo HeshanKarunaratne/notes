@@ -1502,7 +1502,16 @@
   26 . Give some optimization tips?
     - Maximize the WHERE clause because it executes early and to reduce the size of the data set
     - The HAVING clause is executed after WHERE & GROUP BY. So move any appropriate conditions to the WHERE clause
-    - LIMIT, OFFSET, DISTINCT occur at the end of the query, so these dont make a significant impact to the performance
+    - LIMIT, OFFSET, DISTINCT occur at the end of the query, so these don't make a significant impact to the performance
+
+  27 . Different ways to scale the database?
+    - Indexing: Check query patterns and create the right indexes
+    - Materialized views: Pre compute complex query results and store them for faster access
+    - De-Normalization: Reduce complex joins to improve query performance
+    - Vertical scaling: Adding more CPU, RAM and storage
+    - Caching: Store frequently access data in a faster storage layer to reduce database load
+    - Replication: Create replicas of the primary database to scale the reads
+    - Sharding: Split database tables into smaller pieces and spread them across servers
 
 - HTTP Status Codes
     - 1xx: Informational codes: Request received and process is continuing
