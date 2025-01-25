@@ -996,9 +996,14 @@
         - It takes more time in development
         - Spring MVC do not provide powerful batch processing
 
-  47 . SpringBoot oauth2 /oauth/token endpoint body example request and response?
-- Request
+  47 . Explain CronJobs in SpringBoot?
+    - Use @EnableScheduling annotation to register the jobs in scheduling context
+    - Use @Schedule annotation to run tasks at specific intervals
+    - Mostly used for database cleanups, sending automated emails, syncing data, generating reports
+    - Functions should return void and must not accept any arguments
 
+  48 . SpringBoot oauth2 /oauth/token endpoint body example request and response?
+    - Request
 ~~~json
 {
   "grant_type": "password",
@@ -1008,8 +1013,7 @@
 }
 ~~~
 
-- Response
-
+    - Response
 ~~~json
 {
   "access_token": "2YotnFZFEjr1zCsicMWpAA",
