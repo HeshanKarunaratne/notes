@@ -557,6 +557,18 @@
   82 . What is the default access modifier if no access modifier is specified in Java?
     - default
 
+  83 . Key interfaces in Java Collection Framework?
+    - A collection is an object which can store elements. Collections provide methods for adding, removing, searching 
+    - Collection framework was introduced in Java 2
+    - List: ArrayList, LinkedList
+      - Ordered and allows duplicates
+    - Set: HashSet, LinkedHashSet, TreeSet
+      - Unordered and no duplicates
+    - Queue: PriorityQueue, Deque
+      - Elements processed in FIFO order
+    - Map: HashMap, LinkedHashMap, TreeMap
+      - key-value pairs, no duplicate keys
+
 - Spring
 
   1 . Explain Inversion Of Control, Dependency Inversion, Dependency Injection concepts in Spring?
