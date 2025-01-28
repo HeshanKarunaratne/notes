@@ -560,14 +560,61 @@
   83 . Key interfaces in Java Collection Framework?
     - A collection is an object which can store elements. Collections provide methods for adding, removing, searching 
     - Collection framework was introduced in Java 2
-    - List: ArrayList, LinkedList
-      - Ordered and allows duplicates
-    - Set: HashSet, LinkedHashSet, TreeSet
-      - Unordered and no duplicates
-    - Queue: PriorityQueue, Deque
-      - Elements processed in FIFO order
-    - Map: HashMap, LinkedHashMap, TreeMap
-      - key-value pairs, no duplicate keys
+    - Iterator Interface
+      - An iterator is an object associated with a collection. It provides methods for fetching the elements of the collection, one at a time
+      - Iterator interface specifies following methods
+        - hasNext(): boolean - Returns true if there is at least one more element from the collection that can be returned
+        - next(): E - Returns the next element from the collection
+        - remove(): void
+    - Below are the main interfaces in collection framework
+      - List: ArrayList, LinkedList
+        - Ordered and allows duplicates
+        - Indices are 0 based
+      - Set: HashSet, LinkedHashSet, TreeSet
+        - Unordered and no duplicates
+      - Queue: PriorityQueue, Deque
+        - Elements processed in FIFO order
+      - Map: HashMap, LinkedHashMap, TreeMap
+        - key-value pairs, no duplicate keys
+        
+  84 . Explain List interface methods
+~~~java
+import java.util.*;
+class GFG {
+    public static void main(String[] args){
+
+        List<String> li = new ArrayList<>();
+
+        // Adding elements in List
+        li.add("Java");
+        li.add("Python");
+
+        // Accessing elements
+        System.out.println("Element at Index 1: "+ li.get(1));
+      
+        // Getting the index of the element
+        System.out.println("Index of the element Java is: "+ li.indexOf("Java"));
+      
+        // Getting the last index of the element
+        System.out.println("Last Index of element Java is: "+ li.lastIndexOf("Java"));
+
+        // Updating elements
+        li.set(1, "JavaScript");
+   
+        // Creating an iterator
+        ListIterator<String> listIterator = li.listIterator();
+        while (listIterator.hasNext()) {
+            String element = listIterator.next();
+            System.out.println(element);
+        }
+      
+        // Removing elements
+        li.remove("Java");
+        System.out.println("List After Removing Element: " + li);
+ 
+    }
+}
+~~~
 
 - Spring
 
