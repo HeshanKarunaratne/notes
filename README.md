@@ -567,7 +567,7 @@
         - next(): E - Returns the next element from the collection
         - remove(): void
     - Below are the main interfaces in collection framework
-      - List: ArrayList, LinkedList
+      - List: ArrayList, LinkedList, Vector
         - Ordered and allows duplicates
         - Indices are 0 based
       - Set: HashSet, LinkedHashSet, TreeSet
@@ -580,7 +580,7 @@
   84 . Explain List interface methods
 ~~~java
 import java.util.*;
-class GFG {
+class ListInterface {
     public static void main(String[] args){
 
         List<String> li = new ArrayList<>();
@@ -601,17 +601,39 @@ class GFG {
         // Updating elements
         li.set(1, "JavaScript");
    
-        // Creating an iterator
+        // Creating a ListIterator
         ListIterator<String> listIterator = li.listIterator();
         while (listIterator.hasNext()) {
             String element = listIterator.next();
             System.out.println(element);
+        }
+
+        // Creating an iterator
+        Iterator<String> iterator = li.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
       
         // Removing elements
         li.remove("Java");
         System.out.println("List After Removing Element: " + li);
  
+    }
+}
+~~~
+
+  85 . Explain Set interface methods
+~~~java
+import java.util.*;
+class SetInterface {
+    public static void main(String[] args){
+
+        Set<String> set = new HashSet<>();
+
+        // Adding elements in List
+        set.add("Java");
+        set.add("Python");
+        
     }
 }
 ~~~
