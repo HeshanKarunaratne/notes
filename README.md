@@ -576,8 +576,11 @@
         - Elements processed in FIFO order
       - Map: HashMap, LinkedHashMap, TreeMap
         - key-value pairs, no duplicate keys
-        
-  84 . Explain List interface methods
+
+  84 . What is the difference of LinkedHashSet over HashSet?
+  - A LinkedHashSet is a HashSet that keeps track of the order in which elements are added using an auxiliary linked list
+ 
+  85 . Explain List interface methods
 ~~~java
 import java.util.*;
 class ListInterface {
@@ -622,7 +625,7 @@ class ListInterface {
 }
 ~~~
 
-  85 . Explain Set interface methods
+  86 . Explain Set interface methods
 ~~~java
 import java.util.*;
 class SetInterface {
@@ -634,6 +637,13 @@ class SetInterface {
         set.add("Java");
         set.add("Python");
         
+        // Printing elements in the set
+        for(String element: set){
+            System.out.println(element);
+        }
+
+        // Checking if element exist in the set
+        System.out.println(set.contains("C++"));
     }
 }
 ~~~
