@@ -648,6 +648,31 @@ class SetInterface {
 }
 ~~~
 
+  87 . TreeSet interface and Comparator using an example
+~~~java
+import java.util.*;
+
+class TestComp implements Comparator<String>{
+    public int compare(String s1,String s2){
+        return s1.compareTo(s2);
+    }
+}
+
+public class TreeSetCreation
+{
+    public static void main(String args[])
+    {
+        TestComp comp = new TestComp();
+        TreeSet<String> t = new TreeSet<>(comp);
+
+        t.add("bca");
+        t.add("abc");
+        t.add("cab");
+        System.out.println("TreeSet elements: " + t);
+    }
+}
+~~~
+
 - Spring
 
   1 . Explain Inversion Of Control, Dependency Inversion, Dependency Injection concepts in Spring?
