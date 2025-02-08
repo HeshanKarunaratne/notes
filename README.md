@@ -1,6 +1,20 @@
 # Interview Preparation
 
-- Core Java
+- [Core Java](#section-1)
+- [Spring](#section-2)
+- [SpringBoot](#section-3)
+- [Hibernate](#section-4)
+- [JPA](#section-5)
+- [Solid Principals](#section-6)
+- [ACID](#section-7)
+- [Microservices](#section-8)
+- [SQL](#section-9)
+- [REST API](#section-10)
+- [Kafka](#section-11)
+- [React](#section-12)
+
+## Section 1
+#### Core Java
 
   1 . Why Java is not 100% Object oriented?
     - Because of Primitive data types which are not objects eg: boolean, byte, char, int, float, double, long, short
@@ -109,7 +123,9 @@
     - Can add or remove elements from Collections but cannot do that in Streams
 
   19 . What are the new features in Java 8?
+
     - Lambda Expressions
+
     - Method References
         1. What ware different kind of method references?
             - Reference to a static method
@@ -150,6 +166,7 @@
   22 . Why do we need OOP?
     - It helps us to think in terms of Real world objects
     - Pillars of OOP?
+
         1. Abstraction: Show only what is necessary, hiding the complexity. It helps in reducing programming complexity
            and effort by providing simplified view of objects
             - Abstract methods do not have an implementation, it only has method signatures
@@ -673,7 +690,8 @@ public class TreeSetCreation
 }
 ~~~
 
-- Spring
+## Section 2
+#### Spring
 
   1 . Explain Inversion Of Control, Dependency Inversion, Dependency Injection concepts in Spring?
     - Inversion Of Control(IoC):
@@ -780,7 +798,9 @@ public class TreeSetCreation
     - Session: Creates a new instance of a bean for each HTTP session
     - Request: Creates a new instance of a bean for each HTTP request
 
-- Spring boot
+
+## Section 3
+#### SpringBoot
 
   0 . Why Spring Boot?
     - Rapid Application Development
@@ -1140,7 +1160,8 @@ public class TreeSetCreation
 }
 ~~~
 
-- Hibernate
+## Section 4
+#### Hibernate
 
   1 . What is Hibernate?
     - Hibernate is one of the most popular Java frameworks that simplify the development of Java application to interact
@@ -1202,7 +1223,8 @@ public class TreeSetCreation
     - javax.persistence.Entity
 
 
-- JPA
+## Section 5
+#### JPA
 
   1 . What is JPA?
     - Java Persistence API (JPA) is a specification for managing data persistence in Java applications
@@ -1314,7 +1336,9 @@ public class TreeSetCreation
           transaction is committed or not
         - This method is slower than save()
 
-- SOLID Principals
+## Section 6
+#### SOLID Principals
+
     - Single Responsibility Principal
         - A Class should have one and only one responsibility
     - Open/Closed Principal
@@ -1326,7 +1350,8 @@ public class TreeSetCreation
     - Dependency Inversion Principal
         - Depend upon abstractions, not upon concrete classes
 
-- ACID
+## Section 7
+#### ACID
     - A:Atomicity
         - The entire transaction takes place at once or doesn't happen at all
         - eg: If T consists of T1 and T2 either T1 and T2 needs to complete or else T will be failed
@@ -1340,8 +1365,9 @@ public class TreeSetCreation
         - Once the transaction is committed, the updates and modifications to the DB are stored in and written to disk,
           and they persist even if a system failure occurs
 
-- Microservices
 
+## Section 8
+#### Microservices
   1 . What is microservice architecture?
     - Architecture to develop complex applications
     - Built as a collection of small, independent services
@@ -1428,7 +1454,8 @@ public class TreeSetCreation
     - CQRS Pattern: Separate data handling into two parts: One for reading and one for writing
     - Bulkhead Pattern: Isolates microservices in separate containers or VM to contain failures and prevent them from affecting other parts of the system
 
-- SQL
+## Section 9
+#### SQL
   1 . What is a database?
     - A database is an organized collection of logically related data
 
@@ -1663,8 +1690,8 @@ public class TreeSetCreation
         - 503: Service unavailable
         - 504: Gateway timeout
 
-
-- REST API
+## Section 10
+#### REST API
 
   1 . What are REST api methods?
     - GET: Retrieve data on the server(idempotent and safe)
@@ -1725,8 +1752,9 @@ public class TreeSetCreation
     - Use CDN: Deliver static content faster via CDNs
     - Implement an API Gateway: Offload routing and security to an API Gateway
 
-- Kafka
 
+## Section 11
+#### Kafka
   1 . What is the role of the offset?
     - The role is to identify each message in the partition uniquely
     - In partitions, messages are assigned a unique ID number called the offset
@@ -1918,8 +1946,8 @@ public class TreeSetCreation
         - Any change to consumer groups configuration
 
 
-- React
-
+## Section 12
+#### React
   1 . Differentiate between Real DOM and Virtual DOM?
     - Real DOM
         - It updates slow
@@ -2334,71 +2362,3 @@ public class TreeSetCreation
   61 . Can you differentiate between mapStateToProps and mapDispatchToProps?
     - mapStateToProps connects parts of the Redux state to a React component's props, while mapDispatchToProps connects
       Redux actions to a React component's props.
-
-- CSS and SCSS
-
-  1 . Why SCSS is preferred over CSS?
-    - Variables: SCSS allows you to define variables which can be reused throughout your stylesheets
-    - Nesting: SCSS allows for nesting of CSS rules, which can make your stylesheets more organized and easier to read
-    - Mixins: SCSS supports mixins, which are reusable blocks of styles
-    - Functions: SCSS allows for the creation of functions, enabling more complex calculations and transformations
-    - Extensions: SCSS provides additional features and syntax that CSS does not have, such as the @extend directive,
-      which allows one selector to inherit styles from another.
-
-~~~scss
-// Define variables
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-
-// Use variables
-.btn-primary {
-  background-color: $primary-color;
-  color: white;
-}
-----------------------------------
-// Nesting example
-.navbar {
-background-color: #333;
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-}
-----------------------------------
-// Define a mixin
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  border-radius: $radius;
-}
-
-// Use the mixin
-.btn {
-  @include border-radius(5px);
-}
-----------------------------------
-// Define a function
-@function em($px, $base) {
-  @return ($px / $base) * 1em;
-}
-
-// Use the function
-h1 {
-  font-size: em(24px, 16px); // Assuming a base font size of 16px
-}
-----------------------------------
-// Extending
-%text-style {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  color: #333;
-}
-
-// Use the placeholder selector with @extend
-.custom-text {
-  @extend %text-style;
-  font-weight: bold;
-}
-~~~
-
-- Javascript
