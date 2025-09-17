@@ -1298,6 +1298,46 @@ public class TreeSetCreation
 - CQRS Pattern: Separate data handling into two parts: One for reading and one for writing
 - Bulkhead Pattern: Isolates microservices in separate containers or VM to contain failures and prevent them from affecting other parts of the system
 
+15 . What is the difference between Proxy server and Reverse Proxy server?
+- Proxy Server
+  - A proxy (or a forward proxy) is a server that acts on behalf of clients on a network.
+  - When you send a request, like opening a webpage, the proxy intercepts it, forwards it to the target server, and then relays the server’s response back to you.
+  - The proxy server examines the request to decide if it should forward it, deny it, or serve a cached copy.
+  - If the proxy decides to forward the request, it contacts the target website. The website sees only the proxy server’s IP, not the user’s.
+  - Proxy servers hide your IP address by using their own, so the destination server cannot know your real location or identity.
+  - Proxies can filter out malicious content and block suspicious sites, providing an additional layer of security.
+  - Proxies cache frequently accessed content, reducing latency and improving load times for websites.
+
+- Reverse Proxy Server
+  - A reverse proxy is the reverse of a forward proxy. It regulates traffic coming into a network.
+  - It sits in front of servers, intercepts client requests and forwards them to backend servers based on predefined rules.
+  - A reverse proxy mitigates these risks by creating a single, controlled point of entry that filters and regulates incoming traffic all while keeping server IP addresses hidden.
+  - With a reverse proxy in place, clients no longer interact directly with the servers. They only communicate with the reverse proxy.
+  - The reverse proxy relays the response to the client, with the client never directly interacting with the backend servers.
+  - By acting as a protective layer, a reverse proxy hides backend servers from clients, reducing the risk of attacks directly targeting backend infrastructure.
+  - A reverse proxy can distribute incoming requests evenly across multiple backend servers, improving system reliability and preventing server overload.
+  - Reverse proxies can cache static assets like images, CSS, and JavaScript, reducing the need to fetch these files from the backend repeatedly.
+  - Reverse proxies can handle SSL encryption, offloading this work from backend servers.
+
+16 . What is SSL Termination with Reverse Proxies?
+  - Reverse proxy server handles all SSL/TLS encryption and decryption instead of passing encrypted traffic directly to the backend application servers.
+
+- Normal SSL Flow (without termination)
+  - Client → Encrypted request (HTTPS) → Backend server
+  - Backend server itself must handle SSL/TLS (certificate, key, decryption).
+
+- SSL Termination with Reverse Proxy
+  - Client → Encrypted request (HTTPS) → Reverse Proxy
+  - Reverse Proxy decrypts the SSL traffic using its certificate.
+  - Proxy then forwards the plain HTTP request (unencrypted) to the backend application servers.
+  - The backend replies in HTTP, and the reverse proxy re-encrypts if needed before sending back to the client.
+
+- Why Use SSL Termination?
+  - Performance → Offloads expensive encryption/decryption work from backend servers.
+  - Centralized certificate management → Only the proxy needs SSL certificates.
+  - Simplicity → Backend services only need to speak HTTP.
+  - Load balancing → Reverse proxies like Nginx, HAProxy, or Envoy can route requests after terminating SSL.
+
 ## Section 9
 #### SQL
 1 . What is a database?
