@@ -1183,6 +1183,15 @@ public class TreeSetCreation
     - The changes made to the entity are immediately persisted to the database, regardless of whether the current transaction is committed or not
     - This method is slower than save()
 
+14 . Evaluate on transactional propagations in Spring Boot?
+- REQUIRED (default) - If a transaction exists, the method joins it. If not, it starts a new one.
+- REQUIRES_NEW - Always starts a new, independent transaction. Any existing transaction is suspended until the new one completes.
+- MANDATORY - Requires an existing transaction to be active. If no transaction exists, it throws an exception.
+- SUPPORTS - Participates in an existing transaction if available; otherwise, it executes non-transactional.
+- NOT_SUPPORTED - Always executes non-transactional. If a transaction exists, it is suspended for the duration of the method.
+- NEVER - Ensures the method executes without any transaction. It throws an exception if a transaction is already present.
+- NESTED - Runs within a nested transaction if one exists. This allows for "save points" where the nested transaction can roll back independently without affecting the outer transaction.
+
 ## Section 6
 #### SOLID Principals
 
