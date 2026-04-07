@@ -1192,6 +1192,22 @@ public class TreeSetCreation
 - NEVER - Ensures the method executes without any transaction. It throws an exception if a transaction is already present.
 - NESTED - Runs within a nested transaction if one exists. This allows for "save points" where the nested transaction can roll back independently without affecting the outer transaction.
 
+15 . Evaluate on dirty read, non-repeatable read and phantom read in transactions?
+- Dirty read - Reads data from a transaction that may roll back.
+- Non-repeatable read - Same row changes value within a transaction.
+- Phantom read - Number of rows changes within a transaction.
+
+16 . Evaluate shared lock and exclusive lock in transactions?
+- Shared Lock - Shared locks permit multiple concurrent readers but block writers
+- Exclusive Lock - Grant sole access for both reading and writing, ensuring data integrity
+
+17 . Evaluate on transactional isolation in Spring Boot?
+- DEFAULT - Uses the underlying database's default isolation level
+- READ_UNCOMMITTED - The lowest isolation level. It allows "dirty reads" where a transaction can see uncommitted data from others. It offers the highest performance but lowest consistency.
+- READ_COMMITTED - Prevents dirty reads by ensuring a transaction only reads data committed by others. This is the most common production setting.
+- REPEATABLE_READ - Ensures that if a row is read twice in a transaction, the data remains identical. This prevents "non-repeatable reads" but may still allow "phantom reads"
+- SERIALIZABLE - The highest level, executing transactions as if they were sequential. This prevents all anomalies (dirty, non-repeatable, and phantom reads) but significantly impacts performance due to heavy locking.
+
 ## Section 6
 #### SOLID Principals
 
