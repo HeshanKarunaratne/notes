@@ -1363,6 +1363,20 @@ public class TreeSetCreation
   - Simplicity → Backend services only need to speak HTTP.
   - Load balancing → Reverse proxies like Nginx, HAProxy, or Envoy can route requests after terminating SSL.
 
+17 . Explain CQRS pattern?
+- The CQRS (Command Query Responsibility Segregation) pattern is an architectural design that separates the operations that change data (Commands) from the operations that read data (Queries).
+- By splitting these responsibilities, a system can use different models, logic, and even different databases optimized specifically for their respective tasks.
+- Advantages:
+  - Independent scaling
+  - Optimized performance
+  - Simpler queries with materialized views
+  - Improved security
+- Disadvantages:
+  - Increased complexity
+  - Eventual consistency
+  - Data synchronization challenges
+  - Operational cost
+
 ## Section 9
 #### SQL
 1 . What is a database?
