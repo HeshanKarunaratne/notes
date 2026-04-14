@@ -1377,6 +1377,23 @@ public class TreeSetCreation
   - Data synchronization challenges
   - Operational cost
 
+18 . Explain Transactional Outbox Pattern and its benefits?
+- The Transactional Outbox Pattern is a common solution in microservices to reliably publish events without falling into the dual write problem
+- Dual write means updating two systems independently, in one logical transaction. If one succeeds and the other fails, it can lead to data inconsistency.
+- Instead of writing to DB and Kafka separately, we write both into 2 tables (business table and outbox table) in the same local transaction.
+- Then we can use a separate outbox relay to read from the outbox table and publishes to Kafka. 
+- After successfully publishing we can update the status of the outbox table record. 
+- Advantages:
+  - Eliminates dual writes
+  - No distributed transactions
+  - Reliable event delivery
+  - Auditable
+- Disadvantages:
+  - Increased complexity
+  - Eventual consistency
+  - Duplicate events
+  - Outbox table grows fast
+
 ## Section 9
 #### SQL
 1 . What is a database?
