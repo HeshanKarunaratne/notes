@@ -1394,6 +1394,16 @@ public class TreeSetCreation
   - Duplicate events
   - Outbox table grows fast
 
+19 . Explain Hexagonal Architecture?
+- Hexagonal Architecture also called Ports and Adapters Architecture is a way of structuring applications so that your core business logic is completely independent of external systems.
+- The Core is the heart of the system which includes Domain/ Application logics.
+- Ports are interfaces that define how the core communicates with the outside world.
+- Input Ports define how external actors interact with the system like `PlaceOrderUseCase, CancelOrderUseCase`
+- Output Ports define what the core needs from external systems like `OrderRepositoryPort`
+- Adapters connect the outside world to the ports.
+- Input Adapters call input ports to trigger business logic like `RestController, CLI, Kafka`
+- Output Adapters implement output ports and interact with external systems like `JPARepositories, REST Clients`
+
 ## Section 9
 #### SQL
 1 . What is a database?
